@@ -1,0 +1,116 @@
+{
+  "$schema": "xjson://schema/core/v1",
+  "@id": "mx2lm://registry/control-verbs/v1",
+  "@kind": "registry",
+  "@purpose": "Finite control verbs for KUHUL / XCFE / MX2LM",
+  "@invariants": [
+    "verbs-do-not-execute",
+    "verbs-map-to-classes",
+    "deny-by-default"
+  ],
+  "verbs": {
+    "develop": {
+      "phase": "genesis",
+      "classes": ["design.preview"],
+      "pi_profile": "develop"
+    },
+    "design": {
+      "phase": "genesis",
+      "classes": ["css.micronaut"],
+      "pi_profile": "design"
+    },
+    "build": {
+      "phase": "genesis",
+      "classes": ["artifact.generator"],
+      "pi_profile": "build"
+    },
+    "create": {
+      "phase": "genesis",
+      "classes": ["artifact.generator"],
+      "pi_profile": "create"
+    },
+    "implement": {
+      "phase": "genesis",
+      "classes": ["api.static"],
+      "pi_profile": "implement"
+    },
+    "deploy": {
+      "phase": "realization",
+      "classes": ["api.local.server"],
+      "pi_profile": "deploy"
+    },
+    "integrate": {
+      "phase": "realization",
+      "classes": ["domain.handler"],
+      "pi_profile": "integrate"
+    },
+    "test": {
+      "phase": "validation",
+      "classes": ["observe.runtime"],
+      "pi_profile": "test"
+    },
+    "evaluate": {
+      "phase": "validation",
+      "classes": ["observe.runtime"],
+      "pi_profile": "evaluate"
+    },
+    "analyze": {
+      "phase": "validation",
+      "classes": ["observe.runtime"],
+      "pi_profile": "analyze"
+    },
+    "optimize": {
+      "phase": "optimization",
+      "classes": ["config.tuning"],
+      "pi_profile": "optimize"
+    },
+    "refine": {
+      "phase": "optimization",
+      "classes": ["css.cluster"],
+      "pi_profile": "refine"
+    },
+    "improve": {
+      "phase": "optimization",
+      "classes": ["config.tuning"],
+      "pi_profile": "improve"
+    },
+    "enhance": {
+      "phase": "optimization",
+      "classes": ["css.cluster"],
+      "pi_profile": "enhance"
+    },
+    "automate": {
+      "phase": "automation",
+      "classes": ["server.loop"],
+      "pi_profile": "automate"
+    },
+    "simulate": {
+      "phase": "automation",
+      "classes": ["sandbox.runtime"],
+      "pi_profile": "simulate"
+    },
+    "model": {
+      "phase": "automation",
+      "classes": ["sandbox.runtime"],
+      "pi_profile": "model"
+    },
+    "learn": {
+      "phase": "cognition",
+      "classes": ["memory.delta"],
+      "pi_profile": "learn",
+      "restrictions": ["offline-only", "proof-required"]
+    },
+    "adapt": {
+      "phase": "cognition",
+      "classes": ["memory.delta"],
+      "pi_profile": "adapt",
+      "restrictions": ["offline-only"]
+    },
+    "evolve": {
+      "phase": "cognition",
+      "classes": ["memory.delta"],
+      "pi_profile": "evolve",
+      "restrictions": ["offline-only", "manual-approval"]
+    }
+  }
+}
