@@ -19,3 +19,13 @@ const decoded = cipher.decode(encoded);
 console.log(encoded);
 console.log(decoded);
 ```
+
+## Micronaut Object Server
+
+The Micronaut runtime is now a sealed SCO/1 object orchestrated by PowerShell.
+The object lives under `micronaut/` and is file-centric with append-only chat
+and stream files.
+
+* Orchestrator: `micronaut/micronaut.ps1`
+* Object declaration: `micronaut/object.toml`
+* Semantics schema: `micronaut/semantics.xjson`
