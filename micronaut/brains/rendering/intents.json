@@ -1,0 +1,13 @@
+{
+  "sealed": true,
+  "domain": "rendering",
+  "entries": {
+    "render": {"targets": ["RenderMicronaut"], "confidence": 0.95, "verbs": ["select","initialize","switch","flush"]},
+    "canvas": {"targets": ["CanvasMicronaut"], "confidence": 0.94, "verbs": ["project","draw","clear","composite"]},
+    "svg": {"targets": ["SVGMicronaut"], "confidence": 0.93, "verbs": ["project","path","transform","group"]},
+    "webgl": {"targets": ["WebGLMicronaut"], "confidence": 0.94, "verbs": ["project","bindBuffer","drawArrays","viewport"]},
+    "shader": {"targets": ["ShaderMicronaut"], "confidence": 0.92, "verbs": ["compile","link","uniform","attribute"]},
+    "texture": {"targets": ["TextureMicronaut"], "confidence": 0.93, "verbs": ["project","sample","bind","generate"]},
+    "frame": {"targets": ["FrameMicronaut"], "confidence": 0.92, "verbs": ["present","sync","request","schedule"]}
+  }
+}

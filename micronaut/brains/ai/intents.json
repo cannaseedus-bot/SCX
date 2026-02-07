@@ -1,0 +1,13 @@
+{
+  "sealed": true,
+  "domain": "ai",
+  "entries": {
+    "infer": {"targets": ["InferenceMicronaut"], "confidence": 0.95, "verbs": ["orchestrate","collapse","signal","project"]},
+    "model": {"targets": ["ModelMicronaut"], "confidence": 0.94, "verbs": ["select","load","switch","quantize"]},
+    "tokenize": {"targets": ["TokenizerMicronaut"], "confidence": 0.93, "verbs": ["encode","decode","project","segment"]},
+    "prompt": {"targets": ["PromptMicronaut"], "confidence": 0.94, "verbs": ["frame","template","compose","inject"]},
+    "ramble": {"targets": ["RambleMicronaut"], "confidence": 0.95, "verbs": ["extrapolate","narrate","stream","emit"]},
+    "persona": {"targets": ["PersonaMicronaut"], "confidence": 0.92, "verbs": ["project","apply","merge","switch"]},
+    "memory": {"targets": ["MemoryMicronaut"], "confidence": 0.93, "verbs": ["retrieve","embed","search","project"]}
+  }
+}

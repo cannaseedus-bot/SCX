@@ -18,6 +18,30 @@
     "KUHUL-ES is the sole enforcement authority"
   ],
 
+  "brains": {
+    "@status": "sealed",
+    "@structure": "Each domain has trigrams.json, bigrams.json, intents.json",
+    "base": "brains/",
+    "shared": {
+      "trigrams": "brains/trigrams.json",
+      "bigrams": "brains/bigrams.json",
+      "meta_intent_map": "brains/meta-intent-map.json"
+    },
+    "domains": {
+      "core":        "brains/core/",
+      "application": "brains/application/",
+      "ui":          "brains/ui/",
+      "game":        "brains/game/",
+      "rendering":   "brains/rendering/",
+      "data":        "brains/data/",
+      "ai":          "brains/ai/",
+      "system":      "brains/system/",
+      "network":     "brains/network/",
+      "storage":     "brains/storage/",
+      "debug":       "brains/debug/"
+    }
+  },
+
   "core": {
     "HostMicronaut":       "bridges host environment to system",
     "ContextMicronaut":    "selects contextual framing",

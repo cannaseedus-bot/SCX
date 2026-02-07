@@ -1,0 +1,12 @@
+{
+  "sealed": true,
+  "domain": "storage",
+  "entries": {
+    "storage": {"targets": ["StorageMicronaut"], "confidence": 0.95, "verbs": ["select","provision","migrate","mount"]},
+    "file": {"targets": ["FileMicronaut"], "confidence": 0.94, "verbs": ["read","write","append","watch"]},
+    "database": {"targets": ["DBMicronaut"], "confidence": 0.93, "verbs": ["query","insert","update","project"]},
+    "index": {"targets": ["IndexMicronaut"], "confidence": 0.92, "verbs": ["lookup","build","reindex","project"]},
+    "backup": {"targets": ["BackupMicronaut"], "confidence": 0.91, "verbs": ["snapshot","rotate","retain","restore"]},
+    "snapshot": {"targets": ["SnapshotMicronaut"], "confidence": 0.93, "verbs": ["capture","view","restore","diff"]}
+  }
+}

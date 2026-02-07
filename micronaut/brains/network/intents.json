@@ -1,0 +1,12 @@
+{
+  "sealed": true,
+  "domain": "network",
+  "entries": {
+    "network": {"targets": ["NetworkMicronaut"], "confidence": 0.95, "verbs": ["orchestrate","connect","resolve","probe"]},
+    "api": {"targets": ["APIMicronaut"], "confidence": 0.94, "verbs": ["project","route","version","document"]},
+    "websocket": {"targets": ["WebSocketMicronaut"], "confidence": 0.93, "verbs": ["connect","subscribe","broadcast","close"]},
+    "protocol": {"targets": ["ProtocolMicronaut"], "confidence": 0.92, "verbs": ["select","negotiate","upgrade","frame"]},
+    "security": {"targets": ["SecurityMicronaut"], "confidence": 0.94, "verbs": ["enforce","verify","encrypt","audit"]},
+    "auth": {"targets": ["AuthMicronaut"], "confidence": 0.93, "verbs": ["authenticate","authorize","refresh","revoke"]}
+  }
+}

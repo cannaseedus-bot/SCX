@@ -1,0 +1,13 @@
+{
+  "sealed": true,
+  "domain": "application",
+  "entries": {
+    "orchestrate": {"targets": ["AppMicronaut"], "confidence": 0.95, "verbs": ["orchestrate","initialize","mount","bootstrap"]},
+    "state": {"targets": ["StateMicronaut"], "confidence": 0.94, "verbs": ["project","snapshot","observe","reflect"]},
+    "navigate": {"targets": ["RouteMicronaut"], "confidence": 0.93, "verbs": ["navigate","route","resolve","redirect"]},
+    "permit": {"targets": ["PermissionMicronaut"], "confidence": 0.94, "verbs": ["expose","gate","allow","deny"]},
+    "configure": {"targets": ["ConfigMicronaut"], "confidence": 0.93, "verbs": ["load","read","merge","resolve"]},
+    "theme": {"targets": ["ThemeMicronaut"], "confidence": 0.91, "verbs": ["apply","project","switch","inherit"]},
+    "localize": {"targets": ["LocaleMicronaut"], "confidence": 0.92, "verbs": ["apply","translate","format","frame"]}
+  }
+}

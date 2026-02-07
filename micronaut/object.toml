@@ -37,10 +37,30 @@ fields = ["t", "ctx", "mass"]
 replayable = true
 
 [brains]
+status = "sealed"
+
+[brains.shared]
 trigrams = "brains/trigrams.json"
 bigrams = "brains/bigrams.json"
 meta_intent_map = "brains/meta-intent-map.json"
-status = "sealed"
+
+[brains.domains]
+core = "brains/core/"
+application = "brains/application/"
+ui = "brains/ui/"
+game = "brains/game/"
+rendering = "brains/rendering/"
+data = "brains/data/"
+ai = "brains/ai/"
+system = "brains/system/"
+network = "brains/network/"
+storage = "brains/storage/"
+debug = "brains/debug/"
+
+[brains.domain_files]
+trigrams = "trigrams.json"
+bigrams = "bigrams.json"
+intents = "intents.json"
 
 [trace]
 path = "trace/scxq2.trace"

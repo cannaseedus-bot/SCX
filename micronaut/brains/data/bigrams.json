@@ -1,0 +1,33 @@
+{
+  "sealed": true,
+  "domain": "data",
+  "entries": {
+    "data origin": 0.95,
+    "origin source": 0.91,
+    "source connect": 0.88,
+    "data retrieval": 0.94,
+    "retrieval fetch": 0.90,
+    "fetch response": 0.88,
+    "response parse": 0.85,
+    "cached context": 0.93,
+    "context ttl": 0.89,
+    "ttl invalidate": 0.86,
+    "streaming data": 0.94,
+    "data chunk": 0.91,
+    "chunk buffer": 0.88,
+    "buffer flush": 0.85,
+    "data timing": 0.92,
+    "timing sync": 0.89,
+    "sync reconcile": 0.86,
+    "data reshaping": 0.93,
+    "reshaping transform": 0.89,
+    "transform map": 0.87,
+    "map filter": 0.84,
+    "filter reduce": 0.82,
+    "schema validate": 0.94,
+    "validate type": 0.90,
+    "type coerce": 0.87,
+    "cursor offset": 0.85,
+    "batch aggregate": 0.83
+  }
+}

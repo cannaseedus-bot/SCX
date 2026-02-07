@@ -1,0 +1,30 @@
+{
+  "sealed": true,
+  "domain": "core",
+  "entries": {
+    "host environment": 0.95,
+    "environment bridge": 0.92,
+    "bridge system": 0.90,
+    "contextual framing": 0.94,
+    "framing selection": 0.88,
+    "field exposure": 0.91,
+    "exposure filter": 0.85,
+    "perception stream": 0.93,
+    "stream ordering": 0.87,
+    "domain separation": 0.94,
+    "separation boundary": 0.92,
+    "boundary enforce": 0.90,
+    "projection constraint": 0.93,
+    "constraint apply": 0.88,
+    "policy enforce": 0.91,
+    "collapse output": 0.94,
+    "output projection": 0.92,
+    "projection map": 0.89,
+    "result route": 0.93,
+    "route return": 0.91,
+    "return host": 0.90,
+    "flow order": 0.87,
+    "context select": 0.89,
+    "field select": 0.86
+  }
+}

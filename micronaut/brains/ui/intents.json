@@ -1,0 +1,13 @@
+{
+  "sealed": true,
+  "domain": "ui",
+  "entries": {
+    "modality": {"targets": ["UIMicronaut"], "confidence": 0.95, "verbs": ["select","switch","toggle","present"]},
+    "layout": {"targets": ["LayoutMicronaut"], "confidence": 0.94, "verbs": ["arrange","grid","flex","stack"]},
+    "input": {"targets": ["InputMicronaut"], "confidence": 0.93, "verbs": ["route","capture","validate","bind"]},
+    "gesture": {"targets": ["GestureMicronaut"], "confidence": 0.92, "verbs": ["detect","project","recognize","track"]},
+    "animate": {"targets": ["AnimationMicronaut"], "confidence": 0.91, "verbs": ["animate","transition","keyframe","ease"]},
+    "viewport": {"targets": ["ViewportMicronaut"], "confidence": 0.93, "verbs": ["define","clip","scroll","resize"]},
+    "accessibility": {"targets": ["AccessibilityMicronaut"], "confidence": 0.94, "verbs": ["adapt","announce","label","focus"]}
+  }
+}
