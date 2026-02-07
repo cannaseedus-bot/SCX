@@ -1,0 +1,6 @@
+{
+  "schema": "KUHUL-TSG",
+  "version": "1.0",
+  "sealed": true,
+  "description": "Micronaut semantic graph schema (sealed)."
+}
