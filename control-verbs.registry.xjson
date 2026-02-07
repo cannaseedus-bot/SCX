@@ -39,6 +39,11 @@
       "classes": ["api.local.server"],
       "pi_profile": "deploy"
     },
+    "connect": {
+      "phase": "realization",
+      "classes": ["connector.universal"],
+      "pi_profile": "connect"
+    },
     "integrate": {
       "phase": "realization",
       "classes": ["domain.handler"],

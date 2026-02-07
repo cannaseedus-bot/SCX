@@ -1,0 +1,426 @@
+/* ── Universal Connector Panel Styles ────────────────────────── */
+
+:root {
+  --uc-bg: #0b1020;
+  --uc-surface: #131a2e;
+  --uc-border: #1e293b;
+  --uc-text: #e2e8f0;
+  --uc-text-dim: #64748b;
+  --uc-accent: #38bdf8;
+  --uc-accent-dim: rgba(56, 189, 248, 0.15);
+  --uc-success: #22c55e;
+  --uc-error: #ef4444;
+  --uc-warning: #f59e0b;
+}
+
+/* ── Chat Connector ──────────────────────────────────────────── */
+
+.chat-connector-panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--uc-bg);
+  color: var(--uc-text);
+  font-family: "SF Mono", "Fira Code", monospace;
+  font-size: 13px;
+}
+
+.chat-connector-targets {
+  display: flex;
+  gap: 4px;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--uc-border);
+  overflow-x: auto;
+  flex-shrink: 0;
+}
+
+.chat-target {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: var(--uc-surface);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s;
+}
+
+.chat-target:hover { background: var(--uc-accent-dim); }
+.chat-target--active { background: var(--uc-accent-dim); border: 1px solid var(--uc-accent); }
+
+.chat-target__protocol {
+  font-size: 10px;
+  text-transform: uppercase;
+  color: var(--uc-accent);
+  font-weight: 600;
+}
+
+.chat-target__label { color: var(--uc-text); }
+
+.chat-target__status {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--uc-success);
+}
+
+/* ── URI Bar ─────────────────────────────────────────────────── */
+
+.chat-connector-uri-bar,
+.studio-uri-bar {
+  width: 100%;
+  padding: 8px 12px;
+  background: var(--uc-surface);
+  border: 1px solid var(--uc-border);
+  border-radius: 6px;
+  color: var(--uc-text);
+  font-family: inherit;
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.chat-connector-uri-bar:focus,
+.studio-uri-bar:focus {
+  border-color: var(--uc-accent);
+}
+
+/* ── Messages ────────────────────────────────────────────────── */
+
+.chat-connector-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.chat-msg {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  max-width: 85%;
+}
+
+.chat-msg--user {
+  align-self: flex-end;
+  background: var(--uc-accent-dim);
+}
+
+.chat-msg--target {
+  align-self: flex-start;
+  background: var(--uc-surface);
+}
+
+.chat-msg--system {
+  align-self: center;
+  background: none;
+  color: var(--uc-text-dim);
+  font-size: 11px;
+}
+
+.chat-msg__label {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--uc-text-dim);
+}
+
+.chat-msg__body {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* ── Chat Input ──────────────────────────────────────────────── */
+
+.chat-connector-input {
+  padding: 12px;
+  background: var(--uc-surface);
+  border: none;
+  border-top: 1px solid var(--uc-border);
+  color: var(--uc-text);
+  font-family: inherit;
+  font-size: 13px;
+  outline: none;
+  resize: none;
+}
+
+/* ── Studio Workspace ────────────────────────────────────────── */
+
+.studio-workspace {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.studio-workspace--split { flex-direction: row; }
+.studio-workspace--tabs  { flex-direction: column; }
+.studio-workspace--grid  { flex-wrap: wrap; }
+
+/* ── Studio Sidebar ──────────────────────────────────────────── */
+
+.studio-sidebar {
+  width: 240px;
+  background: var(--uc-bg);
+  border-right: 1px solid var(--uc-border);
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  gap: 16px;
+  overflow-y: auto;
+  flex-shrink: 0;
+}
+
+.studio-sidebar__heading {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--uc-text-dim);
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+}
+
+.studio-sidebar__item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.studio-sidebar__item:hover { background: var(--uc-accent-dim); }
+
+.studio-sidebar__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.studio-sidebar__dot--connected  { background: var(--uc-success); }
+.studio-sidebar__dot--disconnected { background: var(--uc-error); }
+
+.studio-sidebar__label { flex: 1; color: var(--uc-text); }
+
+.studio-sidebar__protocol {
+  font-size: 10px;
+  color: var(--uc-accent);
+  text-transform: uppercase;
+}
+
+/* ── Studio Panels ───────────────────────────────────────────── */
+
+.studio-panel {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--uc-border);
+  background: var(--uc-surface);
+  margin: 4px;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: border-color 0.15s;
+}
+
+.studio-panel--focused {
+  border-color: var(--uc-accent);
+}
+
+.studio-panel__header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: var(--uc-bg);
+  border-bottom: 1px solid var(--uc-border);
+}
+
+.studio-panel__protocol {
+  font-size: 10px;
+  text-transform: uppercase;
+  color: var(--uc-accent);
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: var(--uc-accent-dim);
+}
+
+.studio-panel__title {
+  flex: 1;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.studio-panel__caps {
+  font-size: 10px;
+  color: var(--uc-text-dim);
+}
+
+.studio-panel__close {
+  background: none;
+  border: none;
+  color: var(--uc-text-dim);
+  font-size: 16px;
+  cursor: pointer;
+  padding: 0 4px;
+}
+
+.studio-panel__close:hover { color: var(--uc-error); }
+
+.studio-panel__toolbar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-bottom: 1px solid var(--uc-border);
+}
+
+.studio-panel__toolbar:empty { display: none; }
+
+.studio-panel__content {
+  flex: 1;
+  overflow: auto;
+  padding: 12px;
+}
+
+.studio-panel__status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  font-size: 11px;
+  color: var(--uc-text-dim);
+  border-top: 1px solid var(--uc-border);
+}
+
+.studio-panel__status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--uc-success);
+}
+
+/* ── API Explorer ────────────────────────────────────────────── */
+
+.studio-api-method {
+  background: var(--uc-bg);
+  border: 1px solid var(--uc-border);
+  color: var(--uc-accent);
+  border-radius: 4px;
+  padding: 4px 6px;
+  font-size: 12px;
+}
+
+.studio-api-endpoint {
+  flex: 1;
+  background: var(--uc-bg);
+  border: 1px solid var(--uc-border);
+  color: var(--uc-text);
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-family: inherit;
+  font-size: 12px;
+}
+
+.studio-api-send {
+  background: var(--uc-accent-dim);
+  border: 1px solid var(--uc-accent);
+  color: var(--uc-accent);
+  border-radius: 4px;
+  padding: 4px 12px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.studio-api-send:hover { background: var(--uc-accent); color: var(--uc-bg); }
+
+.studio-api-response {
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* ── File Browser ────────────────────────────────────────────── */
+
+.studio-file-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.1s;
+}
+
+.studio-file-item:hover { background: var(--uc-accent-dim); }
+.studio-file-icon { font-size: 14px; }
+.studio-file-name { flex: 1; }
+.studio-file-size { font-size: 11px; color: var(--uc-text-dim); }
+
+.studio-file-preview {
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* ── Live Stream ─────────────────────────────────────────────── */
+
+.studio-stream-log {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.studio-stream-line {
+  padding: 2px 4px;
+  border-radius: 2px;
+  background: var(--uc-bg);
+}
+
+/* ── IPC Command Palette ─────────────────────────────────────── */
+
+.studio-ipc-log {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.studio-ipc-line {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.studio-ipc-line--sent { background: var(--uc-accent-dim); align-self: flex-end; }
+.studio-ipc-line--recv { background: var(--uc-bg); align-self: flex-start; }
+
+.studio-ipc-input {
+  width: 100%;
+  padding: 8px;
+  background: var(--uc-bg);
+  border: 1px solid var(--uc-border);
+  border-radius: 6px;
+  color: var(--uc-text);
+  font-family: inherit;
+  font-size: 12px;
+  outline: none;
+}
+
+.studio-ipc-input:focus { border-color: var(--uc-accent); }
