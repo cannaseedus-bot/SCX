@@ -1,0 +1,128 @@
+{
+  "$schema": "xjson://schema/core/v1",
+  "@id": "mx2lm://registry/micronauts/v1",
+  "@kind": "registry",
+  "@purpose": "Canonical Micronaut blueprint — all building blocks for apps, games, tools, UIs, servers, AI shells",
+  "@version": "1.0.0",
+  "@status": "canonical",
+  "@law": "micronauts_orchestrate_only",
+  "@authority": "none",
+  "@mutation": "forbidden",
+  "@enforcement": "kuhul-es",
+
+  "meta_rules": [
+    "Any new subsystem must be a Micronaut",
+    "Micronauts may not execute or enforce",
+    "Micronauts may be nested freely",
+    "Micronauts may be removed without breaking law",
+    "KUHUL-ES is the sole enforcement authority"
+  ],
+
+  "core": {
+    "HostMicronaut":       "bridges host environment to system",
+    "ContextMicronaut":    "selects contextual framing",
+    "FieldMicronaut":      "selects which fields are exposed",
+    "FlowMicronaut":       "orders perception streams",
+    "BoundaryMicronaut":   "enforces domain separation",
+    "PolicyMicronaut":     "applies projection constraints",
+    "ProjectionMicronaut": "maps collapse to UI/output",
+    "ReturnMicronaut":     "routes results back to host"
+  },
+
+  "application": {
+    "AppMicronaut":        "orchestrates application-level context",
+    "StateMicronaut":      "projects external state without ownership",
+    "RouteMicronaut":      "selects navigation context",
+    "PermissionMicronaut": "exposes allowed surfaces only",
+    "ConfigMicronaut":     "loads configuration as read-only context",
+    "ThemeMicronaut":      "projects aesthetic parameters",
+    "LocaleMicronaut":     "applies language and regional framing"
+  },
+
+  "ui": {
+    "UIMicronaut":            "selects UI modality",
+    "LayoutMicronaut":        "projects spatial arrangement",
+    "InputMicronaut":         "routes user input as field data",
+    "GestureMicronaut":       "projects interaction signals",
+    "AnimationMicronaut":     "projects motion without logic",
+    "ViewportMicronaut":      "defines visible surface",
+    "AccessibilityMicronaut": "projects accessibility adaptations"
+  },
+
+  "game": {
+    "GameMicronaut":      "orchestrates game context",
+    "WorldMicronaut":     "selects world state projection",
+    "EntityMicronaut":    "projects entities as fields",
+    "PhysicsMicronaut":   "projects physics parameters",
+    "CollisionMicronaut": "projects collision context",
+    "CameraMicronaut":    "controls viewpoint framing",
+    "InputMapMicronaut":  "maps controls to fields",
+    "HUDMicronaut":       "projects heads-up display"
+  },
+
+  "rendering": {
+    "RenderMicronaut":  "selects rendering backend",
+    "CanvasMicronaut":  "projects raster surfaces",
+    "SVGMicronaut":     "projects geometric surfaces",
+    "WebGLMicronaut":   "projects GPU surfaces",
+    "ShaderMicronaut":  "projects shading parameters",
+    "TextureMicronaut": "projects texture fields",
+    "FrameMicronaut":   "controls frame presentation"
+  },
+
+  "data": {
+    "DataSourceMicronaut": "selects data origin",
+    "FetchMicronaut":      "orchestrates data retrieval",
+    "CacheMicronaut":      "projects cached context",
+    "StreamMicronaut":     "projects streaming data",
+    "SyncMicronaut":       "coordinates data timing",
+    "TransformMicronaut":  "projects data reshaping",
+    "SchemaMicronaut":     "projects schema context"
+  },
+
+  "ai": {
+    "InferenceMicronaut":  "orchestrates inference context",
+    "ModelMicronaut":      "selects model surface",
+    "TokenizerMicronaut":  "projects tokenization context",
+    "PromptMicronaut":     "frames input prompts",
+    "RambleMicronaut":     "orchestrates extrapolative narration",
+    "PersonaMicronaut":    "projects personality framing",
+    "MemoryMicronaut":     "projects retrieval context"
+  },
+
+  "system": {
+    "CLIMicronaut":       "orchestrates command-line context",
+    "ServerMicronaut":    "orchestrates server runtime context",
+    "WorkerMicronaut":    "orchestrates background tasks",
+    "SchedulerMicronaut": "orders time-based exposure",
+    "ThreadMicronaut":    "projects concurrency framing",
+    "ProcessMicronaut":   "projects process-level context",
+    "SignalMicronaut":    "routes system signals"
+  },
+
+  "network": {
+    "NetworkMicronaut":   "orchestrates network context",
+    "APIMicronaut":       "projects API surface",
+    "WebSocketMicronaut": "projects realtime channels",
+    "ProtocolMicronaut":  "selects protocol framing",
+    "SecurityMicronaut":  "projects security constraints",
+    "AuthMicronaut":      "projects authentication context"
+  },
+
+  "storage": {
+    "StorageMicronaut":  "selects storage backend",
+    "FileMicronaut":     "projects filesystem context",
+    "DBMicronaut":       "projects database context",
+    "IndexMicronaut":    "projects indexing context",
+    "BackupMicronaut":   "projects backup framing",
+    "SnapshotMicronaut": "projects snapshot views"
+  },
+
+  "debug": {
+    "DebugMicronaut":    "projects debug context",
+    "LogMicronaut":      "routes logging output",
+    "TraceMicronaut":    "projects execution trace",
+    "ProfilerMicronaut": "projects performance metrics",
+    "InspectorMicronaut":"projects inspection views"
+  }
+}
