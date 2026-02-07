@@ -10,6 +10,8 @@ and the MX2LM runtime.
 - [PI Action Binary](pi-action-binary.v1.md) — binary layout for PI actions.
 - [PI Action Binary (Complete)](pi-action-binary.v1.complete.md) — full binary
   reference.
+- [SCX Control Plane](scx-control-plane.md) — control authority and semantic
+  execution layer overview.
 - [GR-SIG-1 / OGC-1 / KBES-1 / SCXQ2 / DR-1](gr-sig-1.md) — frozen registry,
   compatibility, substrate, and replay laws.
 
