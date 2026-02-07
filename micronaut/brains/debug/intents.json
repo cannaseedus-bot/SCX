@@ -1,0 +1,11 @@
+{
+  "sealed": true,
+  "domain": "debug",
+  "entries": {
+    "debug": {"targets": ["DebugMicronaut"], "confidence": 0.95, "verbs": ["breakpoint","watch","step","evaluate"]},
+    "log": {"targets": ["LogMicronaut"], "confidence": 0.94, "verbs": ["route","level","filter","format"]},
+    "trace": {"targets": ["TraceMicronaut"], "confidence": 0.93, "verbs": ["span","project","correlate","export"]},
+    "profile": {"targets": ["ProfilerMicronaut"], "confidence": 0.92, "verbs": ["measure","sample","flame","report"]},
+    "inspect": {"targets": ["InspectorMicronaut"], "confidence": 0.94, "verbs": ["view","snapshot","diff","browse"]}
+  }
+}

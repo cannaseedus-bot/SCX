@@ -1,0 +1,14 @@
+{
+  "sealed": true,
+  "domain": "game",
+  "entries": {
+    "gameloop": {"targets": ["GameMicronaut"], "confidence": 0.95, "verbs": ["orchestrate","tick","update","step"]},
+    "world": {"targets": ["WorldMicronaut"], "confidence": 0.94, "verbs": ["select","load","project","transition"]},
+    "entity": {"targets": ["EntityMicronaut"], "confidence": 0.93, "verbs": ["project","spawn","destroy","transform"]},
+    "physics": {"targets": ["PhysicsMicronaut"], "confidence": 0.92, "verbs": ["project","apply","simulate","integrate"]},
+    "collision": {"targets": ["CollisionMicronaut"], "confidence": 0.93, "verbs": ["detect","project","resolve","overlap"]},
+    "camera": {"targets": ["CameraMicronaut"], "confidence": 0.92, "verbs": ["follow","frame","zoom","pan"]},
+    "controls": {"targets": ["InputMapMicronaut"], "confidence": 0.91, "verbs": ["map","bind","remap","poll"]},
+    "hud": {"targets": ["HUDMicronaut"], "confidence": 0.92, "verbs": ["project","overlay","update","toggle"]}
+  }
+}

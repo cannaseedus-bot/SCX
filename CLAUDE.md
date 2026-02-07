@@ -12,7 +12,6 @@ a Micronaut sealed object, and a universal app connectivity layer.
 SCX/
 ├── SCXCipher.js              # Core cipher (CommonJS, K'uhul ↔ SCX)
 ├── server.khl                # MX2LM runtime definition (K'uhul)
-├── micronautHandlers.js      # LLM inference handlers (ES module)
 ├── nl-verb.bind.v1.js        # NL verb extraction (ES module)
 ├── src/
 │   ├── handlers/filesystem.js  # Sandboxed FS operations
@@ -27,26 +26,40 @@ SCX/
 │   └── studio-connector.js   # Studio UI ↔ any app/website/folder
 ├── cli/server/                # CLI lifecycle, spawn, decay, status
 ├── micronaut/                 # Sealed SCO/1 object runtime
+│   ├── micronaut.s7           # SCO/1 sealed object (SCXQ7 kernel)
+│   ├── micronaut.ps1          # PowerShell orchestrator (projection only)
+│   ├── object.toml            # Object declaration (lifecycle, IO, REST)
+│   ├── semantics.xjson        # KUHUL-TSG schema
+│   ├── brains/                # Sealed data (trigrams, bigrams, intents)
+│   ├── io/                    # chat.txt, stream.txt, snapshot/
+│   ├── trace/                 # scxq2.trace (append-only)
+│   └── proof/                 # scxq2.proof
 ├── doc/                       # Frozen specs (do NOT modify)
+├── rest-loopback.ps1          # REST loopback file router (frozen)
+├── cm1-test-vectors.txt       # CM-1 verification test vectors (frozen)
+├── micronaut-registry.xjson   # Canonical Micronaut blueprint (all types)
 ├── connector-registry.xjson   # Universal connector type definitions
-├── control-verbs.registry.xjson  # Frozen verb registry
+├── control-verbs.registry.xjson  # Frozen verb registry (15 verbs)
 ├── mx2lm.server.schema.xjson    # Server schema (localhost-only)
-└── semantics.xjson              # K'uhul-TSG semantic graph
+└── semantics.xjson              # K'uhul-TSG v1 semantic graph (frozen)
 ```
 
 ## Key Conventions
 
 ### Language & Modules
-- JavaScript ES modules (`.js`) with `import`/`export`
+- JavaScript ES modules (`.js`) with `import`/`export` — UI connectors and cipher only
 - K'uhul files (`.khl`) use `⟁` delimiters for runtime blocks
 - XJSON (`.xjson`) for schemas/registries — treat as frozen unless explicitly mutable
 - TOML for Micronaut object declarations
-- PowerShell for Windows orchestration
+- PowerShell for orchestration (Micronaut + REST loopback) — **no JS in Micronaut**
 
 ### Frozen Artifacts (DO NOT MODIFY)
 - `doc/` — All specification documents
-- `semantics.xjson` — K'uhul-TSG semantic graph
-- `micronaut.s7`, `micronaut/micronaut.s7` — Binary sealed headers
+- `semantics.xjson` — K'uhul-TSG v1 (echo-defined, projection-only, deterministic replay)
+- `micronaut.s7`, `micronaut/micronaut.s7` — SCO/1 sealed object (SCXQ7 kernel, hash-locked)
+- `rest-loopback.ps1` — REST loopback file router (append/read only, no execution authority)
+- `cm1-test-vectors.txt` — CM-1 verification vectors (5 vectors: PASS/FAIL/ILLEGAL)
+- `control-verbs.registry.xjson` — 15 frozen verbs across 6 lifecycle phases
 
 ### Naming Patterns
 - Handlers: `<domain>_<action>` (e.g., `fs_read`, `micronaut_infer`)
@@ -54,6 +67,23 @@ SCX/
 - Connectors: `<target>-connector.js`
 - Registries: `<name>.registry.xjson`
 - Schemas: `<name>.schema.xjson`
+
+### Micronaut Architecture
+Micronaut is a **sovereign semantic object** (SCO/1), not a JS service.
+- **PowerShell orchestrator** (`micronaut.ps1`) — routes files, never reasons
+- **chat.txt** — append-only input (CM-1 verified, structured MESSAGE records)
+- **stream.txt** — append-only output (semantic emission, replayable)
+- **Brains** — sealed read-only data (trigrams, bigrams, intents)
+- **Lifecycle**: `INIT → READY → RUNNING → IDLE → HALT` (no hot reload, no mutation)
+- **REST loopback** — file router only, no execution authority
+- **Micronaut Registry** — canonical blueprint for all building blocks (`micronaut-registry.xjson`)
+
+### Ramble Engine
+The Ramble Engine is any LLM model that extrapolates collapse results into narrative.
+- **Authority**: None — it explains what is already decided
+- **Feedback into pi**: Forbidden — output never re-enters the collapse
+- **Spec**: `doc/ramble-engine.v1.md`
+- Truth collapses once. Explanation may unfold forever.
 
 ### Security Model
 - All FS operations sandboxed to repo root via `safePath()`
@@ -76,9 +106,15 @@ Connection flow:
 4. Status projected via WebSocket to UI panels
 
 ### Control Verbs
-14 frozen verbs across 6 lifecycle phases (genesis → cognition).
+15 frozen verbs across 6 lifecycle phases (genesis → cognition).
 The `connect` verb is in the `realization` phase for universal connectivity.
 Verbs do NOT execute — they map to classes and PI profiles.
+
+### System Truth
+> *Text describes. Geometry decides. Law commits.*
+
+Narrators operate **only** as projection crowns selecting *what* is narrated,
+never altering the signal. Semantics are echo-defined.
 
 ## Build & Run
 

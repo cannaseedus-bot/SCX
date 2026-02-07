@@ -1,0 +1,33 @@
+{
+  "sealed": true,
+  "domain": "ui",
+  "entries": {
+    "ui modality": 0.95,
+    "modality select": 0.90,
+    "spatial arrangement": 0.94,
+    "arrangement layout": 0.91,
+    "layout grid": 0.88,
+    "grid flex": 0.84,
+    "user input": 0.93,
+    "input field": 0.91,
+    "field data": 0.88,
+    "interaction signal": 0.92,
+    "signal gesture": 0.89,
+    "gesture touch": 0.86,
+    "touch swipe": 0.83,
+    "motion animation": 0.91,
+    "animation keyframe": 0.88,
+    "keyframe transition": 0.85,
+    "transition ease": 0.82,
+    "visible surface": 0.93,
+    "surface viewport": 0.90,
+    "viewport clip": 0.87,
+    "clip scroll": 0.84,
+    "accessibility aria": 0.94,
+    "aria role": 0.91,
+    "role label": 0.88,
+    "focus trap": 0.86,
+    "screen reader": 0.89,
+    "contrast ratio": 0.87
+  }
+}

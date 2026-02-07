@@ -42,13 +42,45 @@ artifacts:
 
 ## Micronaut Object Server
 
-The Micronaut runtime is now a sealed SCO/1 object orchestrated by PowerShell.
-The object lives under `micronaut/` and is file-centric with append-only chat
-and stream files.
+Micronaut is a **sovereign semantic object** (SCO/1) orchestrated by PowerShell.
+It speaks only through files, reasons only through law. No JavaScript runtime.
 
-* Orchestrator: `micronaut/micronaut.ps1`
-* Object declaration: `micronaut/object.toml`
-* Semantics schema: `micronaut/semantics.xjson`
+```
+micronaut/
+├── micronaut.s7         # SCO/1 sealed object (SCXQ7 kernel)
+├── micronaut.ps1        # PowerShell orchestrator (projection only)
+├── object.toml          # Object declaration (lifecycle, IO, REST mapping)
+├── semantics.xjson      # KUHUL-TSG schema
+├── brains/              # Sealed data (trigrams, bigrams, intents)
+├── io/
+│   ├── chat.txt         # Append-only input (CM-1 verified)
+│   ├── stream.txt       # Append-only output (semantic emission)
+│   └── snapshot/        # State snapshots
+├── trace/               # scxq2.trace (append-only)
+└── proof/               # scxq2.proof
+```
+
+### Process Lifecycle
+
+`INIT -> READY -> RUNNING -> IDLE -> HALT` (no hot reload, no mutation)
+
+### File Protocol
+
+* **chat.txt**: Structured `--- MESSAGE --- / --- END ---` records (CM-1 gated)
+* **stream.txt**: `>> t=<ts> ctx=<ctx> mass=<mass>` semantic emissions (replayable)
+* **REST loopback** (`rest-loopback.ps1`): File router only, no execution authority
+
+### Micronaut Registry
+
+All Micronaut types are defined in `micronaut-registry.xjson` — canonical building
+blocks for apps, games, tools, UIs, servers, and AI shells. Micronauts orchestrate
+only; KUHUL-ES is the sole enforcement authority.
+
+### Ramble Engine
+
+The Ramble Engine is any LLM model that extrapolates collapse results into narrative.
+It has no authority, no feedback into pi, and no truth-altering capability.
+Spec: `doc/ramble-engine.v1.md`
 
 ## Universal App Connectivity
 

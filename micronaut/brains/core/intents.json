@@ -1,0 +1,14 @@
+{
+  "sealed": true,
+  "domain": "core",
+  "entries": {
+    "bridge": {"targets": ["HostMicronaut"], "confidence": 0.95, "verbs": ["connect","bind","attach","link"]},
+    "frame": {"targets": ["ContextMicronaut"], "confidence": 0.94, "verbs": ["select","frame","scope","contextualize"]},
+    "expose": {"targets": ["FieldMicronaut"], "confidence": 0.93, "verbs": ["expose","select","filter","reveal"]},
+    "order": {"targets": ["FlowMicronaut"], "confidence": 0.92, "verbs": ["order","sequence","arrange","pipe"]},
+    "separate": {"targets": ["BoundaryMicronaut"], "confidence": 0.94, "verbs": ["enforce","separate","isolate","partition"]},
+    "constrain": {"targets": ["PolicyMicronaut"], "confidence": 0.93, "verbs": ["apply","constrain","restrict","limit"]},
+    "project": {"targets": ["ProjectionMicronaut"], "confidence": 0.95, "verbs": ["project","map","render","emit"]},
+    "return": {"targets": ["ReturnMicronaut"], "confidence": 0.94, "verbs": ["route","return","deliver","complete"]}
+  }
+}

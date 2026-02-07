@@ -1,0 +1,13 @@
+{
+  "sealed": true,
+  "domain": "data",
+  "entries": {
+    "source": {"targets": ["DataSourceMicronaut"], "confidence": 0.95, "verbs": ["select","connect","switch","probe"]},
+    "fetch": {"targets": ["FetchMicronaut"], "confidence": 0.94, "verbs": ["retrieve","request","poll","paginate"]},
+    "cache": {"targets": ["CacheMicronaut"], "confidence": 0.93, "verbs": ["project","invalidate","refresh","warm"]},
+    "stream": {"targets": ["StreamMicronaut"], "confidence": 0.94, "verbs": ["project","subscribe","buffer","flush"]},
+    "sync": {"targets": ["SyncMicronaut"], "confidence": 0.92, "verbs": ["coordinate","reconcile","merge","resolve"]},
+    "transform": {"targets": ["TransformMicronaut"], "confidence": 0.93, "verbs": ["map","filter","reduce","reshape"]},
+    "schema": {"targets": ["SchemaMicronaut"], "confidence": 0.94, "verbs": ["validate","coerce","project","enforce"]}
+  }
+}

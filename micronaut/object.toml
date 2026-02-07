@@ -1,19 +1,97 @@
+# Micronaut Object Declaration (SCO/1)
+# Sovereign semantic object — file-centric, PowerShell-orchestrated
+
 id = "micronaut"
 format = "SCO/1"
+designation = "MICRONAUT/REF/1"
+kernel = "SCXQ7_KERNEL_LAW.v1"
 status = "INIT"
 mode = "file-centric"
+
+[seal]
+mutation = "forbidden"
+learning = "none"
+projection = "host-only"
+
+[capabilities]
+verbs = ["chat", "generate", "classify", "complete"]
 
 [io]
 chat = "io/chat.txt"
 stream = "io/stream.txt"
+snapshot = "io/snapshot/"
+
+[io.chat_format]
+type = "append-only"
+record_start = "--- MESSAGE ---"
+record_end = "--- END ---"
+fields = ["id", "time", "role", "intent", "context", "payload"]
+roles = ["user", "system", "micronaut"]
+intents = ["chat", "generate", "classify", "complete"]
+cm1_required = true
+
+[io.stream_format]
+type = "append-only"
+prefix = ">>"
+fields = ["t", "ctx", "mass"]
+replayable = true
 
 [brains]
+status = "sealed"
+
+[brains.shared]
 trigrams = "brains/trigrams.json"
 bigrams = "brains/bigrams.json"
 meta_intent_map = "brains/meta-intent-map.json"
 
+[brains.domains]
+core = "brains/core/"
+application = "brains/application/"
+ui = "brains/ui/"
+game = "brains/game/"
+rendering = "brains/rendering/"
+data = "brains/data/"
+ai = "brains/ai/"
+system = "brains/system/"
+network = "brains/network/"
+storage = "brains/storage/"
+debug = "brains/debug/"
+
+[brains.domain_files]
+trigrams = "trigrams.json"
+bigrams = "bigrams.json"
+intents = "intents.json"
+
 [trace]
 path = "trace/scxq2.trace"
+mode = "append-only"
 
 [proof]
 path = "proof/scxq2.proof"
+
+[lifecycle]
+states = ["INIT", "READY", "RUNNING", "IDLE", "HALT"]
+transitions = [
+    "INIT -> READY",
+    "READY -> RUNNING",
+    "RUNNING -> IDLE",
+    "RUNNING -> HALT",
+    "IDLE -> RUNNING",
+    "IDLE -> HALT",
+]
+on_file_append = "wake"
+on_collapse_done = "idle"
+on_error = "halt"
+on_shutdown = "seal_trace"
+
+[rest_loopback]
+host = "127.0.0.1"
+port = 7777
+endpoints = [
+    "POST /chat -> append chat.txt",
+    "GET /stream -> read stream.txt",
+    "GET /status -> read object state",
+    "POST /snapshot -> rotate snapshot",
+]
+authority = "none"
+invariant = "file-router-only"

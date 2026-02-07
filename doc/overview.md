@@ -21,6 +21,11 @@ and the MX2LM runtime.
 - [MX2LM Server DOM Micronaut Runtime](mx2lm-server-dom-micronaut-runtime.md) —
   runtime constraints and invariants.
 
+## Inference + Narration
+
+- [Ramble Engine](ramble-engine.v1.md) — canonical spec for extrapolative
+  narration (any LLM, no authority, no feedback into pi).
+
 ## Execution + Letters
 
 - [KEL KBES SCXQ2 Execution Letter](kel-kbes-scxq2-execution-letter.v1.md) —

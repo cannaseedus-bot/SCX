@@ -1,0 +1,29 @@
+{
+  "sealed": true,
+  "domain": "application",
+  "entries": {
+    "application context": 0.95,
+    "context lifecycle": 0.90,
+    "external state": 0.94,
+    "state projection": 0.91,
+    "navigation context": 0.93,
+    "context route": 0.89,
+    "route resolve": 0.87,
+    "allowed surface": 0.92,
+    "surface permission": 0.90,
+    "permission gate": 0.88,
+    "configuration readonly": 0.93,
+    "readonly context": 0.89,
+    "aesthetic parameter": 0.90,
+    "parameter theme": 0.87,
+    "theme apply": 0.85,
+    "language regional": 0.91,
+    "regional framing": 0.89,
+    "framing locale": 0.87,
+    "app orchestrate": 0.88,
+    "state manage": 0.86,
+    "route select": 0.84,
+    "permission expose": 0.88,
+    "config load": 0.90
+  }
+}
