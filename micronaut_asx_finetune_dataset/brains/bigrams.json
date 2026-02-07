@@ -1,0 +1,7 @@
+{
+  "enemy spotted": "seek cover",
+  "low health": "request healing",
+  "resource scarce": "search supply",
+  "user login": "verify credentials",
+  "cart update": "recalculate totals"
+}

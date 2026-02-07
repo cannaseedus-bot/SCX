@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "required": [
+    "instruction",
+    "input",
+    "output"
+  ],
+  "properties": {
+    "instruction": {
+      "type": "string"
+    },
+    "input": {
+      "type": "string"
+    },
+    "output": {
+      "type": "string"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

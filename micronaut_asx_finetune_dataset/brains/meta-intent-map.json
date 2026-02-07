@@ -1,0 +1,27 @@
+{
+  "aggression": [
+    "flank",
+    "push_line",
+    "breach"
+  ],
+  "defense": [
+    "fortify",
+    "patrol",
+    "monitor"
+  ],
+  "trade": [
+    "barter",
+    "request",
+    "craft"
+  ],
+  "commerce": [
+    "cart_add",
+    "checkout",
+    "refund"
+  ],
+  "auth": [
+    "login",
+    "logout",
+    "refresh_token"
+  ]
+}
