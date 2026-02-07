@@ -37,10 +37,32 @@
     return { healthy: state.healthy }
   }
 
+  ⟁endpoint⟁ GET "/connectors" {
+    return {
+      connectors: listConnections(),
+      ui_modes: ["chat", "studio"],
+      protocols: ["http", "ws", "file", "ipc"]
+    }
+  }
+
+  ⟁endpoint⟁ GET "/connectors/registry" {
+    return loadRegistry("connector-registry.xjson")
+  }
+
   ⟁ws⟁ "/ws/status" {
     // server pushes snapshots; clients cannot send messages
     onConnect {
       send snapshot()
+    }
+  }
+
+  ⟁ws⟁ "/ws/connector" {
+    // bidirectional channel for universal connector events
+    onConnect {
+      send { type: "ready", connectors: listConnections() }
+    }
+    onMessage(msg) {
+      routeToConnector(msg)
     }
   }
 

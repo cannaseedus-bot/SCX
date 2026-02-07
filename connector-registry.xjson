@@ -1,0 +1,82 @@
+{
+  "$schema": "xjson://schema/core/v1",
+  "@id": "mx2lm://registry/connectors/v1",
+  "@kind": "registry",
+  "@purpose": "Universal app/website/folder connector type definitions",
+  "@invariants": [
+    "adapters-are-protocol-bound",
+    "targets-must-validate",
+    "sandbox-enforced-for-fs"
+  ],
+  "protocols": {
+    "http": {
+      "label": "HTTP/HTTPS",
+      "adapter": "HttpAdapter",
+      "schemes": ["http:", "https:"],
+      "capabilities": ["fetch", "stream", "poll"],
+      "description": "Connect to any web app, REST API, or website"
+    },
+    "ws": {
+      "label": "WebSocket",
+      "adapter": "WsAdapter",
+      "schemes": ["ws:", "wss:"],
+      "capabilities": ["duplex", "stream", "push"],
+      "description": "Bidirectional real-time connection to any WebSocket endpoint"
+    },
+    "file": {
+      "label": "Filesystem",
+      "adapter": "FsAdapter",
+      "schemes": ["file:"],
+      "capabilities": ["read", "write", "watch", "list"],
+      "description": "Connect to any local folder or file path"
+    },
+    "ipc": {
+      "label": "Inter-Process",
+      "adapter": "IpcAdapter",
+      "schemes": ["ipc:"],
+      "capabilities": ["send", "receive", "invoke"],
+      "description": "Connect to local applications via IPC channels"
+    }
+  },
+  "target_schema": {
+    "type": "object",
+    "required": ["uri", "protocol"],
+    "properties": {
+      "uri": {
+        "type": "string",
+        "description": "Target URI (e.g., https://api.example.com, file:///path, ws://host:port)"
+      },
+      "protocol": {
+        "enum": ["http", "ws", "file", "ipc"]
+      },
+      "label": {
+        "type": "string",
+        "description": "Human-readable name for the connection"
+      },
+      "auth": {
+        "type": "object",
+        "properties": {
+          "type": { "enum": ["none", "bearer", "basic", "api-key", "custom"] },
+          "token": { "type": "string" },
+          "header": { "type": "string" }
+        }
+      },
+      "options": {
+        "type": "object",
+        "description": "Protocol-specific options passed to adapter"
+      }
+    }
+  },
+  "ui_modes": {
+    "chat": {
+      "description": "Conversational interface that sends/receives messages through any connector",
+      "supports": ["http", "ws", "file", "ipc"],
+      "binding": "ui/chat-connector.js"
+    },
+    "studio": {
+      "description": "Rich workspace interface for browsing, editing, and managing connected targets",
+      "supports": ["http", "ws", "file", "ipc"],
+      "binding": "ui/studio-connector.js"
+    }
+  }
+}
