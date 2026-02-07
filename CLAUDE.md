@@ -28,10 +28,12 @@ SCX/
 ├── cli/server/                # CLI lifecycle, spawn, decay, status
 ├── micronaut/                 # Sealed SCO/1 object runtime
 ├── doc/                       # Frozen specs (do NOT modify)
+├── rest-loopback.ps1          # REST loopback file router (frozen)
+├── cm1-test-vectors.txt       # CM-1 verification test vectors (frozen)
 ├── connector-registry.xjson   # Universal connector type definitions
-├── control-verbs.registry.xjson  # Frozen verb registry
+├── control-verbs.registry.xjson  # Frozen verb registry (15 verbs)
 ├── mx2lm.server.schema.xjson    # Server schema (localhost-only)
-└── semantics.xjson              # K'uhul-TSG semantic graph
+└── semantics.xjson              # K'uhul-TSG v1 semantic graph (frozen)
 ```
 
 ## Key Conventions
@@ -45,8 +47,11 @@ SCX/
 
 ### Frozen Artifacts (DO NOT MODIFY)
 - `doc/` — All specification documents
-- `semantics.xjson` — K'uhul-TSG semantic graph
-- `micronaut.s7`, `micronaut/micronaut.s7` — Binary sealed headers
+- `semantics.xjson` — K'uhul-TSG v1 (echo-defined, projection-only, deterministic replay)
+- `micronaut.s7`, `micronaut/micronaut.s7` — SCO/1 sealed object (SCXQ7 kernel, hash-locked)
+- `rest-loopback.ps1` — REST loopback file router (append/read only, no execution authority)
+- `cm1-test-vectors.txt` — CM-1 verification vectors (5 vectors: PASS/FAIL/ILLEGAL)
+- `control-verbs.registry.xjson` — 15 frozen verbs across 6 lifecycle phases
 
 ### Naming Patterns
 - Handlers: `<domain>_<action>` (e.g., `fs_read`, `micronaut_infer`)
@@ -76,9 +81,15 @@ Connection flow:
 4. Status projected via WebSocket to UI panels
 
 ### Control Verbs
-14 frozen verbs across 6 lifecycle phases (genesis → cognition).
+15 frozen verbs across 6 lifecycle phases (genesis → cognition).
 The `connect` verb is in the `realization` phase for universal connectivity.
 Verbs do NOT execute — they map to classes and PI profiles.
+
+### System Truth
+> *Text describes. Geometry decides. Law commits.*
+
+Narrators operate **only** as projection crowns selecting *what* is narrated,
+never altering the signal. Semantics are echo-defined.
 
 ## Build & Run
 
