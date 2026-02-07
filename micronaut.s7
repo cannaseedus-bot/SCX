@@ -1,0 +1,24 @@
+[0..7]    MAGIC: 53 43 58 51 37 00 AA 55
+[8..63]   HEADER: domains=@π,@λ; ia=SCXQ2-IA/1
+[64..255] KERNEL: SCXQ7 v1 (immutable)
+[256..511] STATE: SVG3D-TENSOR (compressed)
+[512..767] INFERENCE: SCXQ2 μ-ops
+[768..895] TSG: KUHUL-TSG v1 binding
+[896..1023] TRACE: SCXQ2-TRACE/1 (append-only)
+
+{
+  "@sco": "SCO/1",
+  "@name": "micronaut",
+  "@kernel": "SCXQ7_KERNEL_LAW.v1",
+  "@hash": "LOCKED",
+  "@capabilities": ["chat","generate","classify","complete"],
+  "@io": {
+    "in": "io/chat.txt",
+    "out": "io/stream.txt"
+  },
+  "@seal": {
+    "mutation": "forbidden",
+    "learning": "none",
+    "projection": "host-only"
+  }
+}
