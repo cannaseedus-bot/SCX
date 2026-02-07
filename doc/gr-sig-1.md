@@ -5,6 +5,8 @@
 Guarantee that glyph meaning is immutable, globally verifiable, and replay-safe.
 Glyphs are capability identifiers, not syntax sugar.
 
+---
+
 ## 1. Registry Structure (Logical)
 
 ```json
@@ -26,6 +28,8 @@ Glyphs are capability identifiers, not syntax sugar.
 }
 ```
 
+---
+
 ## 2. Signing Rule
 
 - Entire registry is canonicalized.
@@ -33,6 +37,8 @@ Glyphs are capability identifiers, not syntax sugar.
 - `REGISTRY_SIGNATURE = sign(REGISTRY_HASH, π_authority_key)`.
 
 Both values are published and immutable.
+
+---
 
 ## 3. Runtime Law
 
@@ -45,6 +51,8 @@ A runtime MUST:
    - glyph from mismatched registry hash
 
 No runtime may guess glyph meaning.
+
+---
 
 ## 4. Consequence
 
@@ -60,6 +68,8 @@ No runtime may guess glyph meaning.
 
 Prevent illegal execution shapes before execution exists.
 
+---
+
 ## 1. Opcode Table (Example)
 
 | Opcode | Name     | Description               |
@@ -69,6 +79,8 @@ Prevent illegal execution shapes before execution exists.
 |   0x03 | EXEC     | Runtime execution attempt |
 |   0x04 | EMIT     | Signal/output emission    |
 |   0x05 | COLLAPSE | Finalize state            |
+
+---
 
 ## 2. Compatibility Matrix (Law)
 
@@ -80,6 +92,8 @@ Prevent illegal execution shapes before execution exists.
 
 ✔ = allowed
 ✖ = illegal → reject KEL
+
+---
 
 ## 3. Evaluation Rule
 
@@ -101,6 +115,8 @@ No short-circuit. No priority. No overrides.
 - Little-endian.
 - All integers unsigned unless stated.
 
+---
+
 ## 1. KBES-1 Frame Header
 
 | Offset | Size | Field              |
@@ -110,6 +126,8 @@ No short-circuit. No priority. No overrides.
 |   0x05 |    1 | Lane count         |
 |   0x06 |    2 | Header length      |
 |   0x08 |    4 | Total frame length |
+
+---
 
 ## 2. Lane Descriptor (Repeated)
 
@@ -122,6 +140,8 @@ No short-circuit. No priority. No overrides.
 
 Followed immediately by lane payload.
 
+---
+
 ## 3. Glyph Lane (L4)
 
 ```
@@ -131,6 +151,8 @@ uint16  glyph_ids[glyph_count]
 ```
 
 No padding. No metadata.
+
+---
 
 ## 4. Opcode Lane (L5)
 
@@ -173,6 +195,8 @@ Transport does not interpret this. Only KBES-1 + registry does.
 A KEL-1 serialized into KBES-1 and transported via SCXQ2 is deterministically
 replayable.
 
+---
+
 ## Proof Sketch
 
 ### Given
@@ -181,12 +205,16 @@ replayable.
 - Same glyph registry hash.
 - Same opcode table.
 
+---
+
 ### Steps
 
 1. Lane hash verification: each lane hash validates payload integrity.
 2. Registry verification: glyph IDs resolve deterministically.
 3. Opcode compatibility check: pure table lookup, no branching.
 4. Collapse evaluation: Collapse.result is already present, no computation.
+
+---
 
 ### Therefore
 
@@ -198,6 +226,8 @@ replayable.
 ```
 Same bytes => same legality => same outcome
 ```
+
+---
 
 ## Final Invariant (Do Not Break)
 
