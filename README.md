@@ -26,7 +26,7 @@ console.log(decoded);
 * `cli/` — command-line interface tooling for SCX and MX2LM workflows.
 * `ui/` — projection-only UI assets and bindings.
 * `micronaut/` — sealed Micronaut object server runtime.
-* `doc/` — design notes, specs, and protocol references.
+* `doc/` — design notes, specs, and protocol references (see `doc/overview.md`).
 * `SCXCipher.js` — Node entry point for the cipher API.
 
 ## MX2LM Server Runtime (Reference Artifacts)
@@ -52,6 +52,5 @@ and stream files.
 
 ## TODO
 
-- [ ] Add a focused overview document that links the key specs in `doc/`.
 - [ ] Document the MX2LM runtime startup flow in the CLI README.
 - [ ] Add basic lint/test scripts for the CLI and core cipher.
