@@ -1,0 +1,47 @@
+--- MESSAGE ---
+id: 1111
+time: 1890000000001
+role: user
+intent: chat
+payload:
+Hello
+--- END ---
+
+Expect: @cm1 = PASS
+
+--- MESSAGE ---
+<SO>hello
+--- END ---
+
+Expect: @cm1 = FAIL
+
+--- MESSAGE ---
+hello<U+001B>
+--- END ---
+
+Expect: @cm1 = ILLEGAL
+
+--- MESSAGE ---
+<DLE>hello
+--- END ---
+
+Expect: @cm1 = FAIL
+
+--- MESSAGE ---
+id: a
+time: 1
+role: user
+intent: chat
+payload:
+hi
+--- END ---
+--- MESSAGE ---
+id: b
+time: 2
+role: micronaut
+intent: chat
+payload:
+hello
+--- END ---
+
+Expect: @cm1 = PASS

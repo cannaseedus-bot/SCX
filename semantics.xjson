@@ -1,0 +1,48 @@
+{
+  "@schema": "kuhul://tsg/semantics/v1",
+  "@status": "frozen",
+  "@authority": "structural-only",
+  "@echo": "defined",
+
+  "@inputs": {
+    "source": "chat.txt",
+    "encoding": "utf-8",
+    "cm1_required": true
+  },
+
+  "@tsg": {
+    "nodes": [
+      { "id": "token", "type": "lexeme" },
+      { "id": "entity", "type": "reference" },
+      { "id": "action", "type": "verb" },
+      { "id": "relation", "type": "edge" },
+      { "id": "intent", "type": "classifier" }
+    ],
+
+    "edges": [
+      { "from": "token", "to": "entity", "rule": "bind" },
+      { "from": "action", "to": "entity", "rule": "act-on" },
+      { "from": "intent", "to": "graph", "rule": "route" }
+    ],
+
+    "geometry": {
+      "angles": "phase(token_delta)",
+      "magnitudes": "mass(frequency, entropy)",
+      "paths": "dependency-closure",
+      "epsilon": 0.1745329
+    }
+  },
+
+  "@output": {
+    "@type": "pi.signal.v1",
+    "stable": true,
+    "projection_only": true
+  },
+
+  "@invariants": [
+    "no state mutation",
+    "no symbol invention",
+    "deterministic replay",
+    "model-agnostic"
+  ]
+}
