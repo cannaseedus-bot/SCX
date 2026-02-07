@@ -20,6 +20,15 @@ console.log(encoded);
 console.log(decoded);
 ```
 
+## Repository Layout
+
+* `src/` — core SCX encoding/decoding modules.
+* `cli/` — command-line interface tooling for SCX and MX2LM workflows.
+* `ui/` — projection-only UI assets and bindings.
+* `micronaut/` — sealed Micronaut object server runtime.
+* `doc/` — design notes, specs, and protocol references (see `doc/overview.md`).
+* `SCXCipher.js` — Node entry point for the cipher API.
+
 ## MX2LM Server Runtime (Reference Artifacts)
 
 This repo includes a reference MX2LM Server Runtime implementation and related
@@ -40,3 +49,8 @@ and stream files.
 * Orchestrator: `micronaut/micronaut.ps1`
 * Object declaration: `micronaut/object.toml`
 * Semantics schema: `micronaut/semantics.xjson`
+
+## TODO
+
+- [ ] Document the MX2LM runtime startup flow in the CLI README.
+- [ ] Add basic lint/test scripts for the CLI and core cipher.
