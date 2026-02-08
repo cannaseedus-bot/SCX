@@ -10,6 +10,8 @@ and the MX2LM runtime.
 - [PI Action Binary](pi-action-binary.v1.md) — binary layout for PI actions.
 - [PI Action Binary (Complete)](pi-action-binary.v1.complete.md) — full binary
   reference.
+- [π Formula Symmetry Taxonomy](pi-formula-symmetry-taxonomy.md) — symmetry
+  classes for π formulas and the canonical role of binary splitting.
 - [SCX Control Plane](scx-control-plane.md) — control authority and semantic
   execution layer overview.
 - [SCXQ2 Control Lanes](scxq2-control-lanes.v1.md) — packed symbolic execution
