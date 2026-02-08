@@ -19,30 +19,21 @@ converge.
 **Invariant:** efficiency increases with the depth of global symmetry exploited
 (combinatorial → trigonometric → modular/elliptic).
 
-### Collapse Geometry Schema (Symmetry → Function → π)
+## 1.1 Collapse Geometry → Canonical Differential Equation Classes
 
-Each collapse geometry can be described by: **symmetry group**, **natural
-function class**, **role of π**, **typical series/identity**, and
-**computational behavior**.
+Each symmetry class admits a canonical family of differential equations whose
+solutions define the relevant function class. In this view, π appears as a
+period, monodromy invariant, or special value of those solutions.
 
-| Symmetry | Function class | π role | Typical series / identity | Computational behavior |
-| --- | --- | --- | --- | --- |
-| **SO(2)** (rotation) | Trig, arctan/arcsin, Fourier on S¹ | Period generator of rotational closure | Machin-like arctan sums (e.g., π/4 = arctan(1)) | Power series of rational terms; moderate convergence |
-| **Combinatorial path algebra** | Hypergeometric & generating functions | Boundary value of analytic continuation | Central-binomial arcsin expansions | Rational-term series; slower convergence |
-| **SL₂(ℤ) / modular** | Modular forms, elliptic functions | Elliptic period / gamma at rationals | Chudnovsky-type 1/π series | Massive cancellation; extremely fast convergence |
-| **ℚⁿ lattice (Diophantine)** | Logs, arctans, polylogs | Special value in integer relations | PSLQ-discovered linear relations | Numerical discovery → exact evaluation |
+| Collapse Geometry | Canonical DE Class | π Appears As | Collapse Mechanism |
+| --- | --- | --- | --- |
+| Angle / Rotation (SO(2)) | Harmonic oscillator, Sturm–Liouville on the circle | Minimal positive period / monodromy | Periodic orbit closure |
+| Path / Tree (Combinatorial) | Gauss hypergeometric ODE for generating functions | Special value at algebraic points | Analytic continuation to symmetry points |
+| Modular / Elliptic (SL₂(ℤ)) | Modular linear DEs; Picard–Fuchs period ODEs | Elliptic period / CM special value | Global monodromy + complex multiplication |
+| Integer-Relation (Diophantine) | No single DE; relations among DE-derived constants | Integer-relation residue | Lattice relations among special values |
 
-**Structural law:** π appears when a symmetry enforces compact/periodic
-structure whose invariant measure or boundary value is non-algebraic.
-
-### Collapse Mechanisms (Summary)
-
-| Symmetry | Collapse mechanism |
-| --- | --- |
-| SO(2) | Angle addition / cancellation in a compact Lie group |
-| Path algebra | Discrete symmetry → analytic boundary invariant |
-| SL₂(ℤ) | Global modular symmetry → arithmetic invariant |
-| ℚⁿ lattice | Integer lattice collapse → exact relation |
+**Law:** symmetry ⇒ monodromy ⇒ differential equation class ⇒ π as period or
+special value.
 
 ## 2. Binary Splitting (Canonical Evaluation Kernel)
 
