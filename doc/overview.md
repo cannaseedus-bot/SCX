@@ -10,6 +10,8 @@ and the MX2LM runtime.
 - [PI Action Binary](pi-action-binary.v1.md) — binary layout for PI actions.
 - [PI Action Binary (Complete)](pi-action-binary.v1.complete.md) — full binary
   reference.
+- [π Formula Symmetry Taxonomy](pi-formula-symmetry-taxonomy.md) — symmetry
+  classes for π formulas and the canonical role of binary splitting.
 - [SCX Control Plane](scx-control-plane.md) — control authority and semantic
   execution layer overview.
 - [SCXQ2 Control Lanes](scxq2-control-lanes.v1.md) — packed symbolic execution
@@ -36,6 +38,10 @@ and the MX2LM runtime.
   bit-exact lane layout for SCXQ2 streams.
 - [SCXQ4 Extended Lane Law](scxq4-extended-lane-law.v1.md) — widened lane layout
   for 64-bit TargetIDs and large payloads.
+- [SCX Dual-Mode Manifest Field Law](scx-dual-mode-manifest-field-law.v1.md) —
+  signed lane mode declaration and upgrade/downgrade rules.
+- [SCX Unified Encoder/Decoder Interface Law](scx-unified-codec-interface-law.v1.md) —
+  mode-neutral codec interface for Q2/Q4 lanes.
 - [GR-SIG-1 / OGC-1 / KBES-1 / SCXQ2 / DR-1](gr-sig-1.md) — frozen registry,
   compatibility, substrate, and replay laws.
 
