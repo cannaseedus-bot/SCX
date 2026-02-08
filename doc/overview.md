@@ -42,6 +42,8 @@ and the MX2LM runtime.
   signed lane mode declaration and upgrade/downgrade rules.
 - [SCX Unified Encoder/Decoder Interface Law](scx-unified-codec-interface-law.v1.md) —
   mode-neutral codec interface for Q2/Q4 lanes.
+- [SVG-Tensor Cluster Batch Files](svg-tensor-cluster-batch.v1.md) —
+  declarative batch format for staging, verification, and routing.
 - [GR-SIG-1 / OGC-1 / KBES-1 / SCXQ2 / DR-1](gr-sig-1.md) — frozen registry,
   compatibility, substrate, and replay laws.
 
