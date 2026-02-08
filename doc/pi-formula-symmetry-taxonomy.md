@@ -19,6 +19,22 @@ converge.
 **Invariant:** efficiency increases with the depth of global symmetry exploited
 (combinatorial → trigonometric → modular/elliptic).
 
+## 1.1 Collapse Geometry → Canonical Differential Equation Classes
+
+Each symmetry class admits a canonical family of differential equations whose
+solutions define the relevant function class. In this view, π appears as a
+period, monodromy invariant, or special value of those solutions.
+
+| Collapse Geometry | Canonical DE Class | π Appears As | Collapse Mechanism |
+| --- | --- | --- | --- |
+| Angle / Rotation (SO(2)) | Harmonic oscillator, Sturm–Liouville on the circle | Minimal positive period / monodromy | Periodic orbit closure |
+| Path / Tree (Combinatorial) | Gauss hypergeometric ODE for generating functions | Special value at algebraic points | Analytic continuation to symmetry points |
+| Modular / Elliptic (SL₂(ℤ)) | Modular linear DEs; Picard–Fuchs period ODEs | Elliptic period / CM special value | Global monodromy + complex multiplication |
+| Integer-Relation (Diophantine) | No single DE; relations among DE-derived constants | Integer-relation residue | Lattice relations among special values |
+
+**Law:** symmetry ⇒ monodromy ⇒ differential equation class ⇒ π as period or
+special value.
+
 ## 2. Binary Splitting (Canonical Evaluation Kernel)
 
 Binary splitting is the canonical divide-and-conquer evaluation method for
