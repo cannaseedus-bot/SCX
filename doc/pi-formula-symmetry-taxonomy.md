@@ -19,6 +19,31 @@ converge.
 **Invariant:** efficiency increases with the depth of global symmetry exploited
 (combinatorial → trigonometric → modular/elliptic).
 
+### Collapse Geometry Schema (Symmetry → Function → π)
+
+Each collapse geometry can be described by: **symmetry group**, **natural
+function class**, **role of π**, **typical series/identity**, and
+**computational behavior**.
+
+| Symmetry | Function class | π role | Typical series / identity | Computational behavior |
+| --- | --- | --- | --- | --- |
+| **SO(2)** (rotation) | Trig, arctan/arcsin, Fourier on S¹ | Period generator of rotational closure | Machin-like arctan sums (e.g., π/4 = arctan(1)) | Power series of rational terms; moderate convergence |
+| **Combinatorial path algebra** | Hypergeometric & generating functions | Boundary value of analytic continuation | Central-binomial arcsin expansions | Rational-term series; slower convergence |
+| **SL₂(ℤ) / modular** | Modular forms, elliptic functions | Elliptic period / gamma at rationals | Chudnovsky-type 1/π series | Massive cancellation; extremely fast convergence |
+| **ℚⁿ lattice (Diophantine)** | Logs, arctans, polylogs | Special value in integer relations | PSLQ-discovered linear relations | Numerical discovery → exact evaluation |
+
+**Structural law:** π appears when a symmetry enforces compact/periodic
+structure whose invariant measure or boundary value is non-algebraic.
+
+### Collapse Mechanisms (Summary)
+
+| Symmetry | Collapse mechanism |
+| --- | --- |
+| SO(2) | Angle addition / cancellation in a compact Lie group |
+| Path algebra | Discrete symmetry → analytic boundary invariant |
+| SL₂(ℤ) | Global modular symmetry → arithmetic invariant |
+| ℚⁿ lattice | Integer lattice collapse → exact relation |
+
 ## 2. Binary Splitting (Canonical Evaluation Kernel)
 
 Binary splitting is the canonical divide-and-conquer evaluation method for
