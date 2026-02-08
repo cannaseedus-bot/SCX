@@ -116,6 +116,7 @@
 
   "system": {
     "CLIMicronaut":       "orchestrates command-line context",
+    "MX2LMCLIMicronaut":  "orchestrates MX2LM CLI lifecycle and runtime control",
     "ServerMicronaut":    "orchestrates server runtime context",
     "WorkerMicronaut":    "orchestrates background tasks",
     "SchedulerMicronaut": "orders time-based exposure",
