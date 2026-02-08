@@ -3,6 +3,72 @@
 Symbolic Cipher eXchange (SCX) for encoding and decoding K'uhul operations into a
 compact glyph-based format.
 
+## Project Phases (Status)
+
+- [x] **Phase 1 — SCX Cipher Core**: Encode/decode K'uhul operations, JS API, and
+  reference cipher entry point (`SCXCipher.js`).
+- [x] **Phase 2 — MX2LM Runtime Artifacts**: Reference server loop, schema
+  guardrails, and CLI lifecycle modules for MX2LM workflows.
+- [x] **Phase 3 — Micronaut Object Server**: SCO/1 sealed object runtime with
+  file-only IO, lifecycle enforcement, and semantic registries.
+- [x] **Phase 4 — Universal Connectivity Layer**: UI connectors for HTTP/S, WS,
+  file, and IPC endpoints plus chat/studio adapters.
+- [ ] **Phase 5 — Operational Docs & Validation**: Expanded docs for startup
+  flows, verification steps, and CI-grade lint/test coverage.
+
+## Capabilities (Applications & Domains)
+
+SCX provides a cipher layer, runtime artifacts, and connective UI tooling for
+projects that need symbolic protocol translation, sealed object orchestration,
+and universal app connectivity. The known application and domain coverage
+includes:
+
+### Symbolic Cipher & Protocol Translation
+
+- **Encode/decode K'uhul operations** into a compact glyph-based format for
+  transport, storage, and replay. This supports declarative pipelines, compact
+  on-disk artifacts, and deterministic decoding in JS environments.
+- **Schema-backed control verbs** via XJSON registries to keep protocol intent,
+  role boundaries, and connector mappings explicit.
+
+### MX2LM Runtime & CLI Workflows
+
+- **Reference server runtime** with loopback HTTP+WS status endpoints for MX2LM
+  workflows, enabling lifecycle visibility and local-only invariants.
+- **CLI lifecycle modules** for spawn, decay, status, and controlled runtime
+  management in operational scenarios.
+
+### Micronaut Object Server (SCO/1)
+
+- **Sovereign semantic object orchestration** governed by a strict lifecycle
+  (`INIT -> READY -> RUNNING -> IDLE -> HALT`) with no mutation or hot reload.
+- **File-only IO protocol** for append-only chat ingestion and semantic emission,
+  enabling auditable, replayable, and CM-1 verified interaction flows.
+- **Canonical type registry** supporting apps, games, tools, UIs, servers, and AI
+  shells, with KUHUL-ES as the sole enforcement authority.
+
+### Universal App Connectivity & UI Projection
+
+- **Chat Mode** for conversational messaging across APIs, websites, folders, and
+  local apps using HTTP/S, WS, file, and IPC adapters.
+- **Studio Mode** for multi-panel workspaces with protocol-specific panels,
+  streams, and explorers to operate remote or local systems.
+- **Connector registry** mapping realization verbs to universal connectors,
+  enabling consistent integrations across heterogeneous domains.
+
+### Known Application Domains
+
+- **Apps & SaaS**: bridge data via HTTP/S and WS connectors for live or polled
+  integration.
+- **Websites & dashboards**: projection-only UI bindings for status and operator
+  views.
+- **Local tools & folders**: file and IPC adapters for offline or sealed
+  workflows.
+- **Servers & runtime control**: lifecycle monitoring, status emission, and
+  loopback controls for operational systems.
+- **AI shells & semantic agents**: registry-backed definitions for controlled
+  orchestration without runtime mutation.
+
 ## Usage
 
 ```js
@@ -135,3 +201,4 @@ control verb (realization phase) maps to `connector.universal` class.
 
 - [ ] Document the MX2LM runtime startup flow in the CLI README.
 - [ ] Add basic lint/test scripts for the CLI and core cipher.
+- [ ] Extend Micronaut operational examples with validated command sequences.
