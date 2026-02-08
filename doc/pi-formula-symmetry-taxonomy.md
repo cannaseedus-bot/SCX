@@ -19,21 +19,18 @@ converge.
 **Invariant:** efficiency increases with the depth of global symmetry exploited
 (combinatorial → trigonometric → modular/elliptic).
 
-## 1.1 Collapse Geometry → Canonical Differential Equation Classes
+## 1.1 Closed Pipeline Map (Symmetry → DE → Special Values → Kernel)
 
-Each symmetry class admits a canonical family of differential equations whose
-solutions define the relevant function class. In this view, π appears as a
-period, monodromy invariant, or special value of those solutions.
+The closed pipeline expresses how symmetry determines the differential equation
+class, which determines the special-value form, which then selects a natural
+evaluation kernel.
 
-| Collapse Geometry | Canonical DE Class | π Appears As | Collapse Mechanism |
+| Symmetry | DE class | Special value form | Natural kernel |
 | --- | --- | --- | --- |
-| Angle / Rotation (SO(2)) | Harmonic oscillator, Sturm–Liouville on the circle | Minimal positive period / monodromy | Periodic orbit closure |
-| Path / Tree (Combinatorial) | Gauss hypergeometric ODE for generating functions | Special value at algebraic points | Analytic continuation to symmetry points |
-| Modular / Elliptic (SL₂(ℤ)) | Modular linear DEs; Picard–Fuchs period ODEs | Elliptic period / CM special value | Global monodromy + complex multiplication |
-| Integer-Relation (Diophantine) | No single DE; relations among DE-derived constants | Integer-relation residue | Lattice relations among special values |
-
-**Law:** symmetry ⇒ monodromy ⇒ differential equation class ⇒ π as period or
-special value.
+| SO(2) rotation | Harmonic / Sturm–Liouville on circle, inverse-trig DEs | Angles, arctan sums, Fourier boundary values | Power-series evaluation; Machin-style arctan combination |
+| Path / combinatorial | Gauss hypergeometric ODE ({}_2F_1) and relatives | Hypergeometric at algebraic points | Binary splitting (optional rectangular splitting) |
+| Modular / elliptic (SL₂(ℤ)) | Picard–Fuchs, MLDE | Elliptic periods, CM points, modular series | AGM; binary splitting + FFT |
+| Diophantine | Inherited from source constants | Constant vectors evaluated at high precision | PSLQ / LLL + source evaluation kernels |
 
 ## 2. Binary Splitting (Canonical Evaluation Kernel)
 
@@ -46,6 +43,38 @@ series whose terms are rational (or rational × polynomial) in k. It relies on:
 
 This yields parallelizable interval decomposition while preserving exactness
 until the final division step.
+
+## 2.1 Kernel Contracts (Microcode-Ready Families)
+
+Each kernel is a lawful reducer with minimal algebraic assumptions. This keeps
+the pipeline compile-friendly while separating representation from evaluation.
+
+### K1: Binary Splitting (hypergeometric / period series)
+
+**Contract:** associative merge, exact arithmetic until final projection, and
+subrange independence.
+
+**Micro-ops:** split interval, evaluate term, merge rationals, project.
+
+### K2: AGM (elliptic periods)
+
+**Contract:** quadratic convergence, monotone bounds, deterministic iteration.
+
+**Micro-ops:** mean, geometric mean, AGM step, stopping check, period normalize.
+
+### K3: Rotation Combine (Machin / arctan)
+
+**Contract:** stable series evaluation, deterministic combination, controlled
+cancellation.
+
+**Micro-ops:** arctan series, scale, add, and (optional) period reduction.
+
+### K4: PSLQ (relation discovery)
+
+**Contract:** exact integer outputs, verification, precision threshold gating.
+
+**Micro-ops:** basis reduction, matrix update, relation check, verify with more
+precision.
 
 ## 3. SCXQ7 Microkernel Analogy (What Is Metaphor)
 
