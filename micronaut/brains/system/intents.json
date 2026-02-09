@@ -3,6 +3,7 @@
   "domain": "system",
   "entries": {
     "cli": {"targets": ["CLIMicronaut"], "confidence": 0.95, "verbs": ["parse","execute","complete","help"]},
+    "mx2lm_cli": {"targets": ["MX2LMCLIMicronaut"], "confidence": 0.96, "verbs": ["start","stop","status","decay","spawn"]},
     "server": {"targets": ["ServerMicronaut"], "confidence": 0.94, "verbs": ["bind","listen","serve","shutdown"]},
     "worker": {"targets": ["WorkerMicronaut"], "confidence": 0.93, "verbs": ["spawn","consume","complete","retry"]},
     "schedule": {"targets": ["SchedulerMicronaut"], "confidence": 0.92, "verbs": ["schedule","defer","interval","cancel"]},
