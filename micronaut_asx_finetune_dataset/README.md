@@ -1,19 +1,29 @@
 # Micronaut ASX Fine-Tuning Dataset
 
 **Generated:** 2025-11-11T21:14:24.534791Z
-**Modernized:** 2026-02-08
+**Modernized:** 2026-02-09
 
 Train Micronaut/Mx2LM-style agents to build full-stack apps, ASX websites,
 and work with the SCX/SCXQ2/SCXQ4 execution model.
 
 ## Contents
-- `train.jsonl` — 87 unique samples (deduplicated & expanded from legacy 220)
-- `dev.jsonl` — 16 evaluation samples
+
+### Primary Dataset (SCX-specific)
+- `train.jsonl` — 147 training samples
+- `dev.jsonl` — 26 evaluation samples
 - `schema.json` — record schema
+
+### Snippets & Assets
 - `snippets/atomic.css` — Atomic CSS utilities
 - `snippets/asx-blocks.html` — Reusable ASX blocks
 - `brains/` — legacy bigrams, trigrams, meta-intent maps
 - `starter.html` — bare-bones page wiring
+
+### Supplementary Datasets
+- `supplementary/conversations-ds.json` — 200 SCX/ASX/K'uhul project conversations (source for extracted examples)
+- `supplementary/ToolACE-query.jsonl` — 7,327 tool-calling conversation samples
+- `supplementary/grok-code-fast-1-1000x.jsonl` — 1,016 code generation samples
+- `supplementary/val-mathmatics.json` — 2,007 mathematics Q&A samples
 
 ### Record Format
 ```json
@@ -33,27 +43,55 @@ and work with the SCX/SCXQ2/SCXQ4 execution model.
 | **Brains** | `brains`, `ngrams`, `agents`, `sealed` | N-gram brain queries, domain routing |
 | **Connectors** | `connector`, `http`, `websocket`, `filesystem`, `ipc` | Universal app connectivity |
 | **Tokenizer** | `scx-tokenizer`, `encoding` | SCX-TOK-V1 pipeline, registry |
-| **Architecture** | `architecture`, `execution-model`, `kuhul-pi` | Execution model, π enforcement, guarantees |
+| **Architecture** | `architecture`, `execution-model`, `kuhul-pi` | Execution model, pi enforcement, guarantees |
 | **CM-1** | `cm1`, `test-vectors`, `verification` | Control character verification |
 | **Ramble** | `ramble-engine` | Ramble Engine spec and constraints |
 | **PowerShell** | `powershell` | Micronaut orchestrator code patterns |
+| **K'uhul** | `kuhul-compression` | K'uhul glyph compression, pi-LZ77, glyph VM |
+| **ASX Runtime** | `asx-runtime`, `mx2lm-runtime` | ASX kernel, MX2LM server, service workers |
+| **XJSON** | `xjson` | XJSON control flow, schema, AST format |
+| **PrimeOS** | `primeos`, `agent-spawning` | Agent factory, Micronaut spawning system |
+| **Basher** | `basher-terminal` | CLI terminal, command processing |
+| **SCX Cipher** | `scx-cipher`, `scxq` | Cipher operations, SCXQ encoding |
+| **Supagram** | `supagram`, `zk-proof`, `inference`, `graph` | Supagram brains, SCXQ2 lane graphs, ZK proofs |
 
-### What Changed from Legacy
-- **Deduplicated:** 220 → 87 unique train samples (removed ~130 exact duplicates)
-- **Expanded:** Added 60+ new instruction types covering:
-  - SCXQ2 control lane encoding (domain IDs, operators, payloads, flags)
-  - SCXQ2 binary format (header, dictionary, lane records, packets)
-  - SCXQ4 extended lanes (64-bit TargetID, lifting/downcasting law)
-  - Micronaut SCO/1 architecture (lifecycle, chat.txt, stream.txt, snapshots)
-  - PowerShell orchestrator patterns (CM-1 verify, KUHUL-TSG, main loop)
-  - Universal connectors (HTTP, WS, FS, IPC adapters)
-  - SCX tokenizer pipeline and π-signature binding
-  - K'uhul glyph encoding round-trips
-  - Multi-agent collaboration, snapshot branching, error handling
-  - Real-time game ticks, CI/CD pipelines, data pipelines
+### Dataset History
+
+**v1 (legacy):** 220 train + 60 dev samples, ~8 unique patterns heavily duplicated.
+
+**v2 (modernized):** Deduplicated to 87 unique train + 16 dev. Added 60+ new
+instruction types for SCXQ2/SCXQ4/Micronaut/connectors/tokenizer/architecture.
+
+**v3:** Expanded to 137 train + 24 dev by extracting 58 real-world
+examples from 200 SCX/ASX/K'uhul project conversations (`conversations-ds.json`).
+Added supplementary general-purpose datasets for multi-task fine-tuning:
+  - Tool-calling patterns (ToolACE-query: 7,327 samples)
+  - Code generation (grok-code-fast: 1,016 samples)
+  - Mathematics reasoning (val-mathmatics: 2,007 samples)
+
+**v4 (current):** 147 train + 26 dev. Added 12 Supagram Brain training examples
+covering: supagram XJSON structure, supgram vs n-gram differences, SCXQ2 lane
+inference routing, graph traversal, ZK-inference-proofs, domain brain authoring,
+sealed-to-supagram conversion, and lane_policy filtering. Added canonical
+`supagram-demo-brain.xjson` to `micronaut/brains/`.
+
+### New in v3 — Real-World Conversation Examples
+Extracted from actual SCX project development sessions covering:
+  - ASX PRIME kernel implementation (sw.khl, service workers)
+  - K'uhul pi compression engine (pi-LZ77, glyph dictionaries)
+  - SCX cipher compression with 89%+ reduction
+  - XJSON control flow engine (XCF interpreter, AST execution)
+  - MX2LM runtime and AI inference integration
+  - PrimeOS agent spawning (MicronautFactory, topic agents)
+  - Basher terminal CLI commands and tunneling
+  - Atomic blocks game mechanics with K'uhul physics
+  - ASX TPU OS architecture with virtual training
+  - K'uhul XML-SVG-3D fusion specification
 
 ### Tips
 - Tag-aware sampling for curriculum learning.
 - New tags enable SCXQ2/SCXQ4/Micronaut-specific fine-tuning.
 - The `reference` tag marks explanatory samples (good for instruction-following).
 - The `powershell` tag marks code-generation samples for orchestrator patterns.
+- Supplementary datasets can be mixed in for multi-task generalization.
+- The `conversations-ds.json` source has 200 full conversations for deeper extraction.

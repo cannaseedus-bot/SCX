@@ -1,0 +1,136 @@
+{
+  "brain": {
+    "id": "demo-brain-v1",
+    "version": "1.0.0",
+    "hash": "sha256:DEMO",
+    "description": "Minimal XJSON demo brain (supgram-based, no embeddings)",
+    "created_at": "2026-01-01T00:00:00Z"
+  },
+  "alphabet": {
+    "type": "token",
+    "symbols": ["hello", "world", "ai", "is", "verifiable"]
+  },
+  "grams": {
+    "g1": { "tokens": ["hello"], "count": 120 },
+    "g2": { "tokens": ["world"], "count": 98 },
+    "g3": { "tokens": ["ai"], "count": 140 },
+    "g4": { "tokens": ["is"], "count": 200 },
+    "g5": { "tokens": ["verifiable"], "count": 80 },
+    "g6": { "tokens": ["hello", "world"], "count": 75 },
+    "g7": { "tokens": ["ai", "is"], "count": 110 },
+    "g8": { "tokens": ["is", "verifiable"], "count": 65 }
+  },
+  "supgrams": {
+    "S_HELLO": {
+      "members": ["g1"],
+      "weight": 0.9
+    },
+    "S_WORLD": {
+      "members": ["g2"],
+      "weight": 0.85
+    },
+    "S_AI": {
+      "members": ["g3"],
+      "weight": 0.95
+    },
+    "S_IS": {
+      "members": ["g4"],
+      "weight": 0.8
+    },
+    "S_VERIFIABLE": {
+      "members": ["g5"],
+      "weight": 0.88
+    },
+    "S_HELLO_WORLD": {
+      "members": ["g6"],
+      "weight": 0.92
+    },
+    "S_AI_IS": {
+      "members": ["g7"],
+      "weight": 0.94
+    },
+    "S_IS_VERIFIABLE": {
+      "members": ["g8"],
+      "weight": 0.91
+    }
+  },
+  "scxq2": {
+    "lanes": {
+      "0": {
+        "name": "syntax",
+        "min_weight": 0.7
+      },
+      "1": {
+        "name": "semantic",
+        "min_weight": 0.85
+      },
+      "2": {
+        "name": "assertion",
+        "min_weight": 0.9
+      }
+    }
+  },
+  "graph": {
+    "nodes": {
+      "N1": { "supgram": "S_HELLO" },
+      "N2": { "supgram": "S_HELLO_WORLD" },
+      "N3": { "supgram": "S_WORLD" },
+      "N4": { "supgram": "S_AI" },
+      "N5": { "supgram": "S_AI_IS" },
+      "N6": { "supgram": "S_IS_VERIFIABLE" },
+      "N7": { "supgram": "S_VERIFIABLE" }
+    },
+    "edges": [
+      {
+        "from": "N1",
+        "to": "N2",
+        "lane": 0,
+        "weight": 0.92
+      },
+      {
+        "from": "N2",
+        "to": "N3",
+        "lane": 0,
+        "weight": 0.9
+      },
+      {
+        "from": "N4",
+        "to": "N5",
+        "lane": 1,
+        "weight": 0.94
+      },
+      {
+        "from": "N5",
+        "to": "N6",
+        "lane": 1,
+        "weight": 0.91
+      },
+      {
+        "from": "N6",
+        "to": "N7",
+        "lane": 2,
+        "weight": 0.93
+      }
+    ]
+  },
+  "inference": {
+    "queries": {
+      "q1": {
+        "input": ["ai"],
+        "goal": "verifiable",
+        "expected_path": ["N4", "N5", "N6", "N7"],
+        "lane_policy": [1, 2]
+      }
+    }
+  },
+  "proof": {
+    "type": "zk-inference-proof",
+    "commitments": {
+      "graph_commit": "0xGRAPH_HASH",
+      "rules_commit": "0xRULES_HASH",
+      "query_commit": "0xQUERY_HASH"
+    },
+    "answer_commit": "N7",
+    "recursive_ready": true
+  }
+}
