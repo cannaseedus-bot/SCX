@@ -9,8 +9,8 @@ and work with the SCX/SCXQ2/SCXQ4 execution model.
 ## Contents
 
 ### Primary Dataset (SCX-specific)
-- `train.jsonl` — 137 training samples
-- `dev.jsonl` — 24 evaluation samples
+- `train.jsonl` — 147 training samples
+- `dev.jsonl` — 26 evaluation samples
 - `schema.json` — record schema
 
 ### Snippets & Assets
@@ -53,6 +53,7 @@ and work with the SCX/SCXQ2/SCXQ4 execution model.
 | **PrimeOS** | `primeos`, `agent-spawning` | Agent factory, Micronaut spawning system |
 | **Basher** | `basher-terminal` | CLI terminal, command processing |
 | **SCX Cipher** | `scx-cipher`, `scxq` | Cipher operations, SCXQ encoding |
+| **Supagram** | `supagram`, `zk-proof`, `inference`, `graph` | Supagram brains, SCXQ2 lane graphs, ZK proofs |
 
 ### Dataset History
 
@@ -61,12 +62,18 @@ and work with the SCX/SCXQ2/SCXQ4 execution model.
 **v2 (modernized):** Deduplicated to 87 unique train + 16 dev. Added 60+ new
 instruction types for SCXQ2/SCXQ4/Micronaut/connectors/tokenizer/architecture.
 
-**v3 (current):** Expanded to 137 train + 24 dev by extracting 58 real-world
+**v3:** Expanded to 137 train + 24 dev by extracting 58 real-world
 examples from 200 SCX/ASX/K'uhul project conversations (`conversations-ds.json`).
 Added supplementary general-purpose datasets for multi-task fine-tuning:
   - Tool-calling patterns (ToolACE-query: 7,327 samples)
   - Code generation (grok-code-fast: 1,016 samples)
   - Mathematics reasoning (val-mathmatics: 2,007 samples)
+
+**v4 (current):** 147 train + 26 dev. Added 12 Supagram Brain training examples
+covering: supagram XJSON structure, supgram vs n-gram differences, SCXQ2 lane
+inference routing, graph traversal, ZK-inference-proofs, domain brain authoring,
+sealed-to-supagram conversion, and lane_policy filtering. Added canonical
+`supagram-demo-brain.xjson` to `micronaut/brains/`.
 
 ### New in v3 — Real-World Conversation Examples
 Extracted from actual SCX project development sessions covering:
