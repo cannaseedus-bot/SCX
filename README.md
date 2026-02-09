@@ -66,8 +66,8 @@ micronaut/
 
 ### File Protocol
 
-* **chat.txt**: Structured `--- MESSAGE --- / --- END ---` records (CM-1 gated)
-* **stream.txt**: `>> t=<ts> ctx=<ctx> mass=<mass>` semantic emissions (replayable)
+* **chat.txt**: Structured `@record v1 ... @@` records (CM-1 gated)
+* **stream.txt**: `>> TIMESTAMP | DOMAIN | SIGNAL` semantic emissions (replayable, `>> EOS` delimited)
 * **REST loopback** (`rest-loopback.ps1`): File router only, no execution authority
 
 ### Micronaut Registry
@@ -131,7 +131,34 @@ studio.setLayout('grid');    // "split" | "tabs" | "grid"
 All connector types are defined in `connector-registry.xjson`. The `connect`
 control verb (realization phase) maps to `connector.universal` class.
 
+## Fine-Tuning Dataset
+
+`micronaut_asx_finetune_dataset/` contains training data for Micronaut/Mx2LM agents:
+
+* **87 train** + **16 dev** unique samples (deduplicated & expanded from legacy 220)
+* Covers: SCX sigil coding, SCXQ2 control lanes, SCXQ4 extended lanes, Micronaut SCO/1
+  architecture, PowerShell orchestrator patterns, universal connectors, SCX tokenizer,
+  K'uhul glyph encoding, CM-1 verification, brain n-gram routing, and more
+* Tag-aware sampling across 13 categories for curriculum learning
+* See `micronaut_asx_finetune_dataset/README.md` for full tag reference
+
+## Frozen Specs & Documentation
+
+`doc/` contains frozen specifications (do not modify):
+
+| Spec | Description |
+|------|-------------|
+| `scxq2-control-lanes.v1.md` | SCXQ2 lane structure, domain IDs, operators |
+| `scxq2-lane-packing-format.v1.md` | Binary container: header, dictionary, lane stream |
+| `scxq4-extended-lane-law.v1.md` | 64-bit TargetID, lifting/downcasting law |
+| `scx-tokenizer-spec.v1.md` | SCX-TOK-V1 encoding pipeline, registry, π-binding |
+| `scx-execution-model-blueprint.v1.md` | Architecture layers: law → lanes → interpreter → domains |
+| `scx-security-authority-model.v1.md` | Security model and authority enforcement |
+| `ramble-engine.v1.md` | Ramble Engine: narrative extrapolation, no authority |
+
 ## TODO
 
 - [ ] Document the MX2LM runtime startup flow in the CLI README.
 - [ ] Add basic lint/test scripts for the CLI and core cipher.
+- [ ] Add SCMA (Symbolic Cipher Macro Assembly) training examples when spec stabilizes.
+- [ ] Expand dataset with user-provided SCXQ2/SCXQ4 real-world examples.
