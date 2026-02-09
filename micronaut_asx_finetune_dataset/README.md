@@ -9,8 +9,8 @@ and work with the SCX/SCXQ2/SCXQ4 execution model.
 ## Contents
 
 ### Primary Dataset (SCX-specific)
-- `train.jsonl` — 147 training samples
-- `dev.jsonl` — 26 evaluation samples
+- `train.jsonl` — 213 training samples
+- `dev.jsonl` — 38 evaluation samples
 - `schema.json` — record schema
 
 ### Snippets & Assets
@@ -69,11 +69,20 @@ Added supplementary general-purpose datasets for multi-task fine-tuning:
   - Code generation (grok-code-fast: 1,016 samples)
   - Mathematics reasoning (val-mathmatics: 2,007 samples)
 
-**v4 (current):** 147 train + 26 dev. Added 12 Supagram Brain training examples
+**v4:** 147 train + 26 dev. Added 12 Supagram Brain training examples
 covering: supagram XJSON structure, supgram vs n-gram differences, SCXQ2 lane
 inference routing, graph traversal, ZK-inference-proofs, domain brain authoring,
 sealed-to-supagram conversion, and lane_policy filtering. Added canonical
 `supagram-demo-brain.xjson` to `micronaut/brains/`.
+
+**v5 (current):** 213 train + 38 dev. Deep extraction of 40 K'uhul-focused
+examples from conversations-ds.json covering: K'uhul compression engine (pi-LZ77,
+glyph VM, ⟁ delimiters), SVG-3D tensor weight encoding, CSS weight storage for
+LLM inference, K'uhul training pipeline (weights/biases/quantization), XJSON deep
+patterns (XCF interpreter, AST), DEX/wallet swap implementations, PWA dual manifest
+system, and ASX runtime internals. Plus 38 multicode/math examples from
+grok-code-fast covering: Python, JavaScript, HTML/CSS, TypeScript, C++, Rust,
+bash, SQL, algorithms, data structures, and system design patterns.
 
 ### New in v3 — Real-World Conversation Examples
 Extracted from actual SCX project development sessions covering:
