@@ -201,11 +201,11 @@ control verb (realization phase) maps to `connector.universal` class.
 
 `micronaut_asx_finetune_dataset/` contains training data for Micronaut/Mx2LM agents:
 
-* **87 train** + **16 dev** unique samples (deduplicated & expanded from legacy 220)
-* Covers: SCX sigil coding, SCXQ2 control lanes, SCXQ4 extended lanes, Micronaut SCO/1
-  architecture, PowerShell orchestrator patterns, universal connectors, SCX tokenizer,
-  K'uhul glyph encoding, CM-1 verification, brain n-gram routing, and more
-* Tag-aware sampling across 13 categories for curriculum learning
+* **137 train** + **24 dev** SCX-specific samples (v3: real-world conversation extraction)
+* **Supplementary**: 10,350 general-purpose samples (tool-calling, code gen, math)
+* Covers: SCX sigils, SCXQ2/SCXQ4 lanes, Micronaut SCO/1, K'uhul compression,
+  ASX runtime, XJSON, PrimeOS agent spawning, connectors, tokenizer, and more
+* Tag-aware sampling across 19 categories for curriculum learning
 * See `micronaut_asx_finetune_dataset/README.md` for full tag reference
 
 ## Frozen Specs & Documentation
@@ -227,4 +227,5 @@ control verb (realization phase) maps to `connector.universal` class.
 - [ ] Document the MX2LM runtime startup flow in the CLI README.
 - [ ] Add basic lint/test scripts for the CLI and core cipher.
 - [ ] Add SCMA (Symbolic Cipher Macro Assembly) training examples when spec stabilizes.
-- [ ] Expand dataset with user-provided SCXQ2/SCXQ4 real-world examples.
+- [x] Expand dataset with user-provided SCXQ2/SCXQ4 real-world examples.
+- [ ] Extract more examples from remaining conversations-ds.json sessions.
