@@ -9,8 +9,8 @@ and work with the SCX/SCXQ2/SCXQ4 execution model.
 ## Contents
 
 ### Primary Dataset (SCX-specific)
-- `train.jsonl` — 277 training samples
-- `dev.jsonl` — 48 evaluation samples
+- `train.jsonl` — 291 training samples
+- `dev.jsonl` — 50 evaluation samples
 - `schema.json` — record schema
 
 ### Snippets & Assets
@@ -60,6 +60,7 @@ and work with the SCX/SCXQ2/SCXQ4 execution model.
 | **RLHF Interaction** | `user_interaction` | Multi-turn flow: terse commands, code drops, iteration |
 | **RLHF Layout** | `layout_pattern` | ASCII diagrams, architecture trees, tables, guides |
 | **Bilingual** | `bilingual` | Chinese/English mixed-language examples |
+| **Gram Stripper** | `gram_stripper` | Gram leakage detection, stripping, brain-aware filtering |
 
 ### Dataset History
 
@@ -81,7 +82,13 @@ inference routing, graph traversal, ZK-inference-proofs, domain brain authoring,
 sealed-to-supagram conversion, and lane_policy filtering. Added canonical
 `supagram-demo-brain.xjson` to `micronaut/brains/`.
 
-**v6 (current):** 277 train + 48 dev. RLHF deep extraction of 74 examples from
+**v7 (current):** 291 train + 50 dev. Added gram stripper module (`src/gram-stripper.js`)
+and 16 training examples covering: gram leakage architecture (why models leak internal
+n-gram/supgram data), 7 artifact class catalog, stripGrams API usage, brain-aware
+stripping, stream wrapping, strict vs normal mode, allowlist configuration, multi-brain
+setups, performance benchmarks, and training dataset curation for gram awareness.
+
+**v6:** 277 train + 48 dev. RLHF deep extraction of 74 examples from
 conversations-ds.json targeting response quality training signals:
   - Code examples (16): Complete HTML/CSS/JS, PHP, PWA, CSS-as-API implementations
   - RLHF response structure (14): Markdown headers, bullet/numbered sections, overview→detail→code patterns

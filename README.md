@@ -88,7 +88,7 @@ console.log(decoded);
 
 ## Repository Layout
 
-* `src/` — core SCX encoding/decoding modules.
+* `src/` — core SCX encoding/decoding modules and gram stripper.
 * `cli/` — command-line interface tooling for SCX and MX2LM workflows.
 * `ui/` — projection-only UI assets and bindings.
 * `micronaut/` — sealed Micronaut object server runtime.
@@ -201,12 +201,12 @@ control verb (realization phase) maps to `connector.universal` class.
 
 `micronaut_asx_finetune_dataset/` contains training data for Micronaut/Mx2LM agents:
 
-* **277 train** + **48 dev** SCX-specific samples (v6: RLHF response patterns)
+* **291 train** + **50 dev** SCX-specific samples (v7: gram stripper + RLHF patterns)
 * **Supplementary**: 10,350 general-purpose samples (tool-calling, code gen, math)
 * Covers: SCX sigils, SCXQ2/SCXQ4 lanes, Micronaut SCO/1, K'uhul compression,
   ASX runtime, XJSON, PrimeOS agent spawning, connectors, tokenizer,
-  RLHF response structure, conversational tone, code examples, and more
-* Tag-aware sampling across 25 categories for curriculum learning
+  RLHF response structure, conversational tone, gram stripping, and more
+* Tag-aware sampling across 26 categories for curriculum learning
 * See `micronaut_asx_finetune_dataset/README.md` for full tag reference
 
 ## Frozen Specs & Documentation
@@ -232,3 +232,4 @@ control verb (realization phase) maps to `connector.universal` class.
 - [x] Extract more examples from remaining conversations-ds.json sessions.
 - [x] Add multicode/math examples from grok-code-fast dataset.
 - [x] Extract RLHF response patterns (code, structure, tone, interaction, layout).
+- [x] Add gram stripper module and training examples for gram leakage prevention.

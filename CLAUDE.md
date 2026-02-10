@@ -15,6 +15,7 @@ SCX/
 ├── nl-verb.bind.v1.js        # NL verb extraction (ES module)
 ├── src/
 │   ├── handlers/filesystem.js  # Sandboxed FS operations
+│   ├── gram-stripper.js        # Post-processing gram artifact filter
 │   └── connectors/             # Universal app connectivity
 │       ├── universal.js        # Connector manager & registry loader
 │       └── adapters.js         # Protocol adapters (HTTP, WS, FS, IPC)
