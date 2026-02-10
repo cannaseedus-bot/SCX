@@ -9,8 +9,8 @@ and work with the SCX/SCXQ2/SCXQ4 execution model.
 ## Contents
 
 ### Primary Dataset (SCX-specific)
-- `train.jsonl` — 213 training samples
-- `dev.jsonl` — 38 evaluation samples
+- `train.jsonl` — 277 training samples
+- `dev.jsonl` — 48 evaluation samples
 - `schema.json` — record schema
 
 ### Snippets & Assets
@@ -54,6 +54,12 @@ and work with the SCX/SCXQ2/SCXQ4 execution model.
 | **Basher** | `basher-terminal` | CLI terminal, command processing |
 | **SCX Cipher** | `scx-cipher`, `scxq` | Cipher operations, SCXQ encoding |
 | **Supagram** | `supagram`, `zk-proof`, `inference`, `graph` | Supagram brains, SCXQ2 lane graphs, ZK proofs |
+| **RLHF Code** | `code_example` | Complete working implementations (HTML/CSS/JS/PHP/PWA) |
+| **RLHF Structure** | `rlhf_response_structure` | Response formatting: headers, sections, overview→detail |
+| **RLHF Tone** | `conversational_tone` | Engagement style, collaboration, technical enthusiasm |
+| **RLHF Interaction** | `user_interaction` | Multi-turn flow: terse commands, code drops, iteration |
+| **RLHF Layout** | `layout_pattern` | ASCII diagrams, architecture trees, tables, guides |
+| **Bilingual** | `bilingual` | Chinese/English mixed-language examples |
 
 ### Dataset History
 
@@ -75,7 +81,16 @@ inference routing, graph traversal, ZK-inference-proofs, domain brain authoring,
 sealed-to-supagram conversion, and lane_policy filtering. Added canonical
 `supagram-demo-brain.xjson` to `micronaut/brains/`.
 
-**v5 (current):** 213 train + 38 dev. Deep extraction of 40 K'uhul-focused
+**v6 (current):** 277 train + 48 dev. RLHF deep extraction of 74 examples from
+conversations-ds.json targeting response quality training signals:
+  - Code examples (16): Complete HTML/CSS/JS, PHP, PWA, CSS-as-API implementations
+  - RLHF response structure (14): Markdown headers, bullet/numbered sections, overview→detail→code patterns
+  - Conversational tone (16): Enthusiastic engagement, "yes-and" collaboration, technical compliments
+  - User interaction flow (14): Terse command handling, raw code drops, iterative refinement cycles
+  - Layout patterns (14): ASCII tree diagrams, architecture overviews, comparison tables, step-by-step guides
+  - Bilingual (4): Chinese/English mixed examples from real project sessions
+
+**v5:** 213 train + 38 dev. Deep extraction of 40 K'uhul-focused
 examples from conversations-ds.json covering: K'uhul compression engine (pi-LZ77,
 glyph VM, ⟁ delimiters), SVG-3D tensor weight encoding, CSS weight storage for
 LLM inference, K'uhul training pipeline (weights/biases/quantization), XJSON deep

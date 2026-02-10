@@ -201,11 +201,12 @@ control verb (realization phase) maps to `connector.universal` class.
 
 `micronaut_asx_finetune_dataset/` contains training data for Micronaut/Mx2LM agents:
 
-* **213 train** + **38 dev** SCX-specific samples (v5: K'uhul deep + multicode/math)
+* **277 train** + **48 dev** SCX-specific samples (v6: RLHF response patterns)
 * **Supplementary**: 10,350 general-purpose samples (tool-calling, code gen, math)
 * Covers: SCX sigils, SCXQ2/SCXQ4 lanes, Micronaut SCO/1, K'uhul compression,
-  ASX runtime, XJSON, PrimeOS agent spawning, connectors, tokenizer, and more
-* Tag-aware sampling across 19 categories for curriculum learning
+  ASX runtime, XJSON, PrimeOS agent spawning, connectors, tokenizer,
+  RLHF response structure, conversational tone, code examples, and more
+* Tag-aware sampling across 25 categories for curriculum learning
 * See `micronaut_asx_finetune_dataset/README.md` for full tag reference
 
 ## Frozen Specs & Documentation
@@ -230,3 +231,4 @@ control verb (realization phase) maps to `connector.universal` class.
 - [x] Expand dataset with user-provided SCXQ2/SCXQ4 real-world examples.
 - [x] Extract more examples from remaining conversations-ds.json sessions.
 - [x] Add multicode/math examples from grok-code-fast dataset.
+- [x] Extract RLHF response patterns (code, structure, tone, interaction, layout).
