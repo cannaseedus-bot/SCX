@@ -16,6 +16,17 @@ SCX/
 ├── src/
 │   ├── handlers/filesystem.js  # Sandboxed FS operations
 │   ├── gram-stripper.js        # Post-processing gram artifact filter
+│   ├── scxllm/                 # SCXLLM Ramble Engine
+│   │   ├── index.js            # Public API re-exports
+│   │   ├── engine.js           # Core engine (lifecycle, narration, policy)
+│   │   ├── collapse-bridge.js  # Pi collapse → LLM prompt converter
+│   │   ├── policy.js           # Invariant enforcement (non-mutation, no feedback)
+│   │   ├── pipeline.js         # Full pipeline (CM-1 → collapse → narrate → stream.txt)
+│   │   └── providers/          # LLM backend adapters
+│   │       ├── index.js        # Provider registry & auto-detection
+│   │       ├── base.js         # Abstract provider interface
+│   │       ├── ollama.js       # Ollama (local GGUF models)
+│   │       └── api.js          # OpenAI-compatible APIs
 │   └── connectors/             # Universal app connectivity
 │       ├── universal.js        # Connector manager & registry loader
 │       └── adapters.js         # Protocol adapters (HTTP, WS, FS, IPC)

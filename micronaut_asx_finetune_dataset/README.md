@@ -9,8 +9,8 @@ and work with the SCX/SCXQ2/SCXQ4 execution model.
 ## Contents
 
 ### Primary Dataset (SCX-specific)
-- `train.jsonl` — 291 training samples
-- `dev.jsonl` — 50 evaluation samples
+- `train.jsonl` — 303 training samples
+- `dev.jsonl` — 52 evaluation samples
 - `schema.json` — record schema
 
 ### Snippets & Assets
@@ -61,6 +61,7 @@ and work with the SCX/SCXQ2/SCXQ4 execution model.
 | **RLHF Layout** | `layout_pattern` | ASCII diagrams, architecture trees, tables, guides |
 | **Bilingual** | `bilingual` | Chinese/English mixed-language examples |
 | **Gram Stripper** | `gram_stripper` | Gram leakage detection, stripping, brain-aware filtering |
+| **SCXLLM** | `scxllm` | Ramble Engine: pipeline, providers, policy, collapse bridge |
 
 ### Dataset History
 
@@ -82,7 +83,13 @@ inference routing, graph traversal, ZK-inference-proofs, domain brain authoring,
 sealed-to-supagram conversion, and lane_policy filtering. Added canonical
 `supagram-demo-brain.xjson` to `micronaut/brains/`.
 
-**v7 (current):** 291 train + 50 dev. Added gram stripper module (`src/gram-stripper.js`)
+**v8 (current):** 303 train + 52 dev. Built SCXLLM Ramble Engine (`src/scxllm/`)
+and 14 training examples covering: SCXLLM architecture, quick-start usage, full
+CM-1 pipeline, policy enforcement (4 violation types), streaming narration,
+collapse math with breakdown, LLM provider selection, brain-aware integration,
+engine lifecycle states, projection context configuration, and architecture diagram.
+
+**v7:** 291 train + 50 dev. Added gram stripper module (`src/gram-stripper.js`)
 and 16 training examples covering: gram leakage architecture (why models leak internal
 n-gram/supgram data), 7 artifact class catalog, stripGrams API usage, brain-aware
 stripping, stream wrapping, strict vs normal mode, allowlist configuration, multi-brain
