@@ -66,17 +66,13 @@ export {
   densityAt,
 } from './metabrain.js';
 
-// Brain trainer — corpus → brain XJSON model training
+// Brain trainer — formal programs → brain XJSON compilation
 export {
-  tokenize,
-  countNgrams,
-  normalizeWeights,
-  extractIntents,
-  buildSupgrams,
-  trainBrain,
-  trainIntentBrain,
-  trainFromDataset,
-  mergeBrains,
+  compilePrograms,
+  composeBrains,
+  buildPolicyBrain,
+  buildIntentBrain,
+  validateBrain,
 } from './brain-trainer.js';
 
 // Math Corpora — formal language for computable reality
