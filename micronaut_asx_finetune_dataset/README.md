@@ -9,8 +9,8 @@ and work with the SCX/SCXQ2/SCXQ4 execution model.
 ## Contents
 
 ### Primary Dataset (SCX-specific)
-- `train.jsonl` — 315 training samples
-- `dev.jsonl` — 54 evaluation samples
+- `train.jsonl` — 323 training samples
+- `dev.jsonl` — 56 evaluation samples
 - `schema.json` — record schema
 
 ### Snippets & Assets
@@ -63,6 +63,7 @@ and work with the SCX/SCXQ2/SCXQ4 execution model.
 | **Gram Stripper** | `gram_stripper` | Gram leakage detection, stripping, brain-aware filtering |
 | **SCXLLM** | `scxllm` | Ramble Engine: pipeline, providers, policy, collapse bridge |
 | **Metabrain** | `metabrain` | Recursive brain generation, evolve(), factory pipeline, convergence math |
+| **Brain Trainer** | `brain_trainer` | Brain model training: corpus→XJSON, intent extraction, merging |
 
 ### Dataset History
 
@@ -84,7 +85,14 @@ inference routing, graph traversal, ZK-inference-proofs, domain brain authoring,
 sealed-to-supagram conversion, and lane_policy filtering. Added canonical
 `supagram-demo-brain.xjson` to `micronaut/brains/`.
 
-**v9 (current):** 315 train + 54 dev. Added Metabrain recursive brain generation
+**v10 (current):** 323 train + 56 dev. Added Brain Trainer pipeline
+(`src/scxllm/brain-trainer.js`) — trains brain XJSON models from text corpus,
+JSONL datasets, or conversation data. 10 training examples covering: brain-as-model
+concept, trainBrain from corpus, trainFromDataset with tag filtering, intent brain
+training, mergeBrains for multi-domain, full train→evolve lifecycle, supgram
+construction from n-grams, and recommended training data sources.
+
+**v9:** 315 train + 54 dev. Added Metabrain recursive brain generation
 engine (`src/scxllm/metabrain.js`) and canonical specification
 (`micronaut/brains/metabrain-infinity.xjson`). 14 training examples covering:
 recursive brain evolution, 4-phase factory pipeline, convergence math proofs,

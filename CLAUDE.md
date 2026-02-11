@@ -23,6 +23,7 @@ SCX/
 │   │   ├── policy.js           # Invariant enforcement (non-mutation, no feedback)
 │   │   ├── pipeline.js         # Full pipeline (CM-1 → collapse → narrate → stream.txt)
 │   │   ├── metabrain.js        # Recursive brain generation (Brain(n) → Brain(n+1))
+│   │   ├── brain-trainer.js   # Brain model training (corpus → XJSON)
 │   │   └── providers/          # LLM backend adapters
 │   │       ├── index.js        # Provider registry & auto-detection
 │   │       ├── base.js         # Abstract provider interface

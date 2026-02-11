@@ -65,3 +65,16 @@ export {
   capabilityCountAt,
   densityAt,
 } from './metabrain.js';
+
+// Brain trainer — corpus → brain XJSON model training
+export {
+  tokenize,
+  countNgrams,
+  normalizeWeights,
+  extractIntents,
+  buildSupgrams,
+  trainBrain,
+  trainIntentBrain,
+  trainFromDataset,
+  mergeBrains,
+} from './brain-trainer.js';
