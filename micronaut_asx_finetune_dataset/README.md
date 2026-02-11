@@ -63,7 +63,7 @@ and work with the SCX/SCXQ2/SCXQ4 execution model.
 | **Gram Stripper** | `gram_stripper` | Gram leakage detection, stripping, brain-aware filtering |
 | **SCXLLM** | `scxllm` | Ramble Engine: pipeline, providers, policy, collapse bridge |
 | **Metabrain** | `metabrain` | Recursive brain generation, evolve(), factory pipeline, convergence math |
-| **Brain Trainer** | `brain_trainer` | Brain model training: corpus→XJSON, intent extraction, merging |
+| **Brain Trainer** | `brain_trainer` | Brain compilation: formal programs→XJSON, policy/intent brains, composition |
 | **Math Corpora** | `math_corpora` | Formal language: states, transitions, proofs, Merkle roots, Universe |
 
 ### Dataset History
@@ -96,11 +96,12 @@ generation + Merkle roots, compile-to-brain, core sets + algebraic structures,
 validation, theoretical domains, full stack integration, and end-to-end pipeline.
 
 **v10:** 323 train + 56 dev. Added Brain Trainer pipeline
-(`src/scxllm/brain-trainer.js`) — trains brain XJSON models from text corpus,
-JSONL datasets, or conversation data. 10 training examples covering: brain-as-model
-concept, trainBrain from corpus, trainFromDataset with tag filtering, intent brain
-training, mergeBrains for multi-domain, full train→evolve lifecycle, supgram
-construction from n-grams, and recommended training data sources.
+(`src/scxllm/brain-trainer.js`) — compiles formal Math Corpora programs into
+brain XJSON reasoning engines. 10 training examples covering: brains as reasoning
+engines (not data stores), compilePrograms from formal source, buildPolicyBrain
+for constraint enforcement, buildIntentBrain for action routing, composeBrains
+for multi-domain unification, validateBrain integrity checks, and full
+compile→specialize→compose→evolve→seal lifecycle.
 
 **v9:** 315 train + 54 dev. Added Metabrain recursive brain generation
 engine (`src/scxllm/metabrain.js`) and canonical specification
