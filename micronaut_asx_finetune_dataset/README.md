@@ -9,8 +9,8 @@ and work with the SCX/SCXQ2/SCXQ4 execution model.
 ## Contents
 
 ### Primary Dataset (SCX-specific)
-- `train.jsonl` — 323 training samples
-- `dev.jsonl` — 56 evaluation samples
+- `train.jsonl` — 331 training samples
+- `dev.jsonl` — 57 evaluation samples
 - `schema.json` — record schema
 
 ### Snippets & Assets
@@ -64,6 +64,7 @@ and work with the SCX/SCXQ2/SCXQ4 execution model.
 | **SCXLLM** | `scxllm` | Ramble Engine: pipeline, providers, policy, collapse bridge |
 | **Metabrain** | `metabrain` | Recursive brain generation, evolve(), factory pipeline, convergence math |
 | **Brain Trainer** | `brain_trainer` | Brain model training: corpus→XJSON, intent extraction, merging |
+| **Math Corpora** | `math_corpora` | Formal language: states, transitions, proofs, Merkle roots, Universe |
 
 ### Dataset History
 
@@ -85,7 +86,16 @@ inference routing, graph traversal, ZK-inference-proofs, domain brain authoring,
 sealed-to-supagram conversion, and lane_policy filtering. Added canonical
 `supagram-demo-brain.xjson` to `micronaut/brains/`.
 
-**v10 (current):** 323 train + 56 dev. Added Brain Trainer pipeline
+**v11 (current):** 331 train + 57 dev. Added Math Corpora formal language
+(`src/scxllm/math-corpora.js`, `doc/math-corpora.v1.md`) — gives brains the
+ability to talk. EBNF grammar with tokenizer, parser, AST, and Universe evaluator.
+8 statement types (state, transition, constraint, field, micronaut, proof,
+arbitration, meta). Compiles to brain XJSON via `compileToBrain()`. 9 training
+examples covering: formal language overview, state/transition definitions, proof
+generation + Merkle roots, compile-to-brain, core sets + algebraic structures,
+validation, theoretical domains, full stack integration, and end-to-end pipeline.
+
+**v10:** 323 train + 56 dev. Added Brain Trainer pipeline
 (`src/scxllm/brain-trainer.js`) — trains brain XJSON models from text corpus,
 JSONL datasets, or conversation data. 10 training examples covering: brain-as-model
 concept, trainBrain from corpus, trainFromDataset with tag filtering, intent brain

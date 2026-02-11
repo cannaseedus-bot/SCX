@@ -78,3 +78,18 @@ export {
   trainFromDataset,
   mergeBrains,
 } from './brain-trainer.js';
+
+// Math Corpora — formal language for computable reality
+export {
+  SETS,
+  STRUCTURES,
+  DOMAINS,
+  TokenType,
+  NodeType,
+  tokenize as mcTokenize,
+  parse as mcParse,
+  Universe,
+  evaluate,
+  compileToBrain,
+  validate as mcValidate,
+} from './math-corpora.js';

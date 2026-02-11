@@ -222,12 +222,12 @@ control verb (realization phase) maps to `connector.universal` class.
 
 `micronaut_asx_finetune_dataset/` contains training data for Micronaut/Mx2LM agents:
 
-* **323 train** + **56 dev** SCX-specific samples (v10: Brain Trainer pipeline)
+* **331 train** + **57 dev** SCX-specific samples (v11: Math Corpora formal language)
 * **Supplementary**: 10,350 general-purpose samples (tool-calling, code gen, math)
 * Covers: SCX sigils, SCXQ2/SCXQ4 lanes, Micronaut SCO/1, K'uhul compression,
   ASX runtime, XJSON, PrimeOS agent spawning, connectors, tokenizer,
   RLHF response structure, conversational tone, gram stripping, metabrain, and more
-* Tag-aware sampling across 29 categories for curriculum learning
+* Tag-aware sampling across 30 categories for curriculum learning
 * See `micronaut_asx_finetune_dataset/README.md` for full tag reference
 
 ## Frozen Specs & Documentation
@@ -243,6 +243,7 @@ control verb (realization phase) maps to `connector.universal` class.
 | `scx-execution-model-blueprint.v1.md` | Architecture layers: law → lanes → interpreter → domains |
 | `scx-security-authority-model.v1.md` | Security model and authority enforcement |
 | `ramble-engine.v1.md` | Ramble Engine: narrative extrapolation, no authority |
+| `math-corpora.v1.md` | Mathematical Corpus: axiomatic substrate, core equations, EBNF grammar |
 
 ## TODO
 
@@ -257,3 +258,4 @@ control verb (realization phase) maps to `connector.universal` class.
 - [x] Build SCXLLM Ramble Engine runtime (collapse → narration pipeline).
 - [x] Add Metabrain recursive brain generation engine and training examples.
 - [x] Build Brain Trainer pipeline (corpus → brain XJSON model training).
+- [x] Add Math Corpora formal language (MC v1: states, transitions, proofs, EBNF grammar).
