@@ -22,6 +22,7 @@ SCX/
 │   │   ├── collapse-bridge.js  # Pi collapse → LLM prompt converter
 │   │   ├── policy.js           # Invariant enforcement (non-mutation, no feedback)
 │   │   ├── pipeline.js         # Full pipeline (CM-1 → collapse → narrate → stream.txt)
+│   │   ├── metabrain.js        # Recursive brain generation (Brain(n) → Brain(n+1))
 │   │   └── providers/          # LLM backend adapters
 │   │       ├── index.js        # Provider registry & auto-detection
 │   │       ├── base.js         # Abstract provider interface
@@ -42,7 +43,7 @@ SCX/
 │   ├── micronaut.ps1          # PowerShell orchestrator (projection only)
 │   ├── object.toml            # Object declaration (lifecycle, IO, REST)
 │   ├── semantics.xjson        # KUHUL-TSG schema
-│   ├── brains/                # Sealed data (trigrams, bigrams, intents)
+│   ├── brains/                # Sealed data (trigrams, bigrams, intents, metabrain)
 │   ├── io/                    # chat.txt, stream.txt, snapshot/
 │   ├── trace/                 # scxq2.trace (append-only)
 │   └── proof/                 # scxq2.proof

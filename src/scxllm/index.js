@@ -51,3 +51,17 @@ export { Pipeline, verifyCM1, emitToStream, emitEOS } from './pipeline.js';
 
 // Providers
 export { createProvider, autoProvider } from './providers/index.js';
+
+// Metabrain — recursive brain generation
+export {
+  evolve,
+  analyzeBrain,
+  generateSpec,
+  buildBrain,
+  validateGeneration,
+  chainStatus,
+  checkEmergencyStop,
+  compressionAt,
+  capabilityCountAt,
+  densityAt,
+} from './metabrain.js';

@@ -9,8 +9,8 @@ and work with the SCX/SCXQ2/SCXQ4 execution model.
 ## Contents
 
 ### Primary Dataset (SCX-specific)
-- `train.jsonl` — 303 training samples
-- `dev.jsonl` — 52 evaluation samples
+- `train.jsonl` — 315 training samples
+- `dev.jsonl` — 54 evaluation samples
 - `schema.json` — record schema
 
 ### Snippets & Assets
@@ -62,6 +62,7 @@ and work with the SCX/SCXQ2/SCXQ4 execution model.
 | **Bilingual** | `bilingual` | Chinese/English mixed-language examples |
 | **Gram Stripper** | `gram_stripper` | Gram leakage detection, stripping, brain-aware filtering |
 | **SCXLLM** | `scxllm` | Ramble Engine: pipeline, providers, policy, collapse bridge |
+| **Metabrain** | `metabrain` | Recursive brain generation, evolve(), factory pipeline, convergence math |
 
 ### Dataset History
 
@@ -83,7 +84,14 @@ inference routing, graph traversal, ZK-inference-proofs, domain brain authoring,
 sealed-to-supagram conversion, and lane_policy filtering. Added canonical
 `supagram-demo-brain.xjson` to `micronaut/brains/`.
 
-**v8 (current):** 303 train + 52 dev. Built SCXLLM Ramble Engine (`src/scxllm/`)
+**v9 (current):** 315 train + 54 dev. Added Metabrain recursive brain generation
+engine (`src/scxllm/metabrain.js`) and canonical specification
+(`micronaut/brains/metabrain-infinity.xjson`). 14 training examples covering:
+recursive brain evolution, 4-phase factory pipeline, convergence math proofs,
+brain analysis/optimization strategies, validation, emergency stops, monitoring,
+information density, SCXLLM integration, and architecture diagrams.
+
+**v8:** 303 train + 52 dev. Built SCXLLM Ramble Engine (`src/scxllm/`)
 and 14 training examples covering: SCXLLM architecture, quick-start usage, full
 CM-1 pipeline, policy enforcement (4 violation types), streaming narration,
 collapse math with breakdown, LLM provider selection, brain-aware integration,

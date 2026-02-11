@@ -165,8 +165,9 @@ const text = await pipe.quick('signal', 0.5, [
 ```
 
 Components: engine core, collapse-to-prompt bridge, policy enforcement,
-gram stripper integration, CM-1 verified pipeline, Ollama + API providers.
-Spec: `doc/ramble-engine.v1.md`
+gram stripper integration, CM-1 verified pipeline, Ollama + API providers,
+and **Metabrain** recursive brain generation (`Brain(n) → Brain(n+1)`).
+Spec: `doc/ramble-engine.v1.md`, `micronaut/brains/metabrain-infinity.xjson`
 
 ## Universal App Connectivity
 
@@ -221,12 +222,12 @@ control verb (realization phase) maps to `connector.universal` class.
 
 `micronaut_asx_finetune_dataset/` contains training data for Micronaut/Mx2LM agents:
 
-* **303 train** + **52 dev** SCX-specific samples (v8: SCXLLM Ramble Engine)
+* **315 train** + **54 dev** SCX-specific samples (v9: Metabrain recursive brain generation)
 * **Supplementary**: 10,350 general-purpose samples (tool-calling, code gen, math)
 * Covers: SCX sigils, SCXQ2/SCXQ4 lanes, Micronaut SCO/1, K'uhul compression,
   ASX runtime, XJSON, PrimeOS agent spawning, connectors, tokenizer,
-  RLHF response structure, conversational tone, gram stripping, and more
-* Tag-aware sampling across 27 categories for curriculum learning
+  RLHF response structure, conversational tone, gram stripping, metabrain, and more
+* Tag-aware sampling across 28 categories for curriculum learning
 * See `micronaut_asx_finetune_dataset/README.md` for full tag reference
 
 ## Frozen Specs & Documentation
@@ -254,3 +255,4 @@ control verb (realization phase) maps to `connector.universal` class.
 - [x] Extract RLHF response patterns (code, structure, tone, interaction, layout).
 - [x] Add gram stripper module and training examples for gram leakage prevention.
 - [x] Build SCXLLM Ramble Engine runtime (collapse → narration pipeline).
+- [x] Add Metabrain recursive brain generation engine and training examples.
