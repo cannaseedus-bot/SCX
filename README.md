@@ -88,7 +88,7 @@ console.log(decoded);
 
 ## Repository Layout
 
-* `src/` — core SCX encoding/decoding modules.
+* `src/` — core SCX encoding/decoding modules, gram stripper, and SCXLLM engine.
 * `cli/` — command-line interface tooling for SCX and MX2LM workflows.
 * `ui/` — projection-only UI assets and bindings.
 * `micronaut/` — sealed Micronaut object server runtime.
@@ -142,11 +142,32 @@ All Micronaut types are defined in `micronaut-registry.xjson` — canonical buil
 blocks for apps, games, tools, UIs, servers, and AI shells. Micronauts orchestrate
 only; KUHUL-ES is the sole enforcement authority.
 
-### Ramble Engine
+### SCXLLM (Ramble Engine)
 
-The Ramble Engine is any LLM model that extrapolates collapse results into narrative.
-It has no authority, no feedback into pi, and no truth-altering capability.
-Spec: `doc/ramble-engine.v1.md`
+The Ramble Engine is implemented as **SCXLLM** (`src/scxllm/`). It wraps any LLM
+backend with hard invariants: no mutation, no feedback into pi, outcome preservation.
+
+```
+chat.txt (CM-1) → Pi Collapse → SCXLLM Engine → Gram Stripper → stream.txt
+```
+
+```js
+import { Pipeline, createProvider } from './src/scxllm/index.js';
+
+const pipe = new Pipeline({
+  provider: createProvider('ollama', { model: 'llama3' }),
+});
+
+const text = await pipe.quick('signal', 0.5, [
+  { glyph: '@', weight: 1.0 },
+  { glyph: 'π', weight: 3.14159 },
+]);
+```
+
+Components: engine core, collapse-to-prompt bridge, policy enforcement,
+gram stripper integration, CM-1 verified pipeline, Ollama + API providers,
+and **Metabrain** recursive brain generation (`Brain(n) → Brain(n+1)`).
+Spec: `doc/ramble-engine.v1.md`, `micronaut/brains/metabrain-infinity.xjson`
 
 ## Universal App Connectivity
 
@@ -201,11 +222,12 @@ control verb (realization phase) maps to `connector.universal` class.
 
 `micronaut_asx_finetune_dataset/` contains training data for Micronaut/Mx2LM agents:
 
-* **137 train** + **24 dev** SCX-specific samples (v3: real-world conversation extraction)
+* **331 train** + **57 dev** SCX-specific samples (v11: Math Corpora formal language)
 * **Supplementary**: 10,350 general-purpose samples (tool-calling, code gen, math)
 * Covers: SCX sigils, SCXQ2/SCXQ4 lanes, Micronaut SCO/1, K'uhul compression,
-  ASX runtime, XJSON, PrimeOS agent spawning, connectors, tokenizer, and more
-* Tag-aware sampling across 19 categories for curriculum learning
+  ASX runtime, XJSON, PrimeOS agent spawning, connectors, tokenizer,
+  RLHF response structure, conversational tone, gram stripping, metabrain, and more
+* Tag-aware sampling across 30 categories for curriculum learning
 * See `micronaut_asx_finetune_dataset/README.md` for full tag reference
 
 ## Frozen Specs & Documentation
@@ -221,6 +243,7 @@ control verb (realization phase) maps to `connector.universal` class.
 | `scx-execution-model-blueprint.v1.md` | Architecture layers: law → lanes → interpreter → domains |
 | `scx-security-authority-model.v1.md` | Security model and authority enforcement |
 | `ramble-engine.v1.md` | Ramble Engine: narrative extrapolation, no authority |
+| `math-corpora.v1.md` | Mathematical Corpus: axiomatic substrate, core equations, EBNF grammar |
 
 ## TODO
 
@@ -228,4 +251,11 @@ control verb (realization phase) maps to `connector.universal` class.
 - [ ] Add basic lint/test scripts for the CLI and core cipher.
 - [ ] Add SCMA (Symbolic Cipher Macro Assembly) training examples when spec stabilizes.
 - [x] Expand dataset with user-provided SCXQ2/SCXQ4 real-world examples.
-- [ ] Extract more examples from remaining conversations-ds.json sessions.
+- [x] Extract more examples from remaining conversations-ds.json sessions.
+- [x] Add multicode/math examples from grok-code-fast dataset.
+- [x] Extract RLHF response patterns (code, structure, tone, interaction, layout).
+- [x] Add gram stripper module and training examples for gram leakage prevention.
+- [x] Build SCXLLM Ramble Engine runtime (collapse → narration pipeline).
+- [x] Add Metabrain recursive brain generation engine and training examples.
+- [x] Build Brain Trainer pipeline (corpus → brain XJSON model training).
+- [x] Add Math Corpora formal language (MC v1: states, transitions, proofs, EBNF grammar).

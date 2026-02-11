@@ -9,8 +9,8 @@ and work with the SCX/SCXQ2/SCXQ4 execution model.
 ## Contents
 
 ### Primary Dataset (SCX-specific)
-- `train.jsonl` — 147 training samples
-- `dev.jsonl` — 26 evaluation samples
+- `train.jsonl` — 331 training samples
+- `dev.jsonl` — 57 evaluation samples
 - `schema.json` — record schema
 
 ### Snippets & Assets
@@ -54,6 +54,17 @@ and work with the SCX/SCXQ2/SCXQ4 execution model.
 | **Basher** | `basher-terminal` | CLI terminal, command processing |
 | **SCX Cipher** | `scx-cipher`, `scxq` | Cipher operations, SCXQ encoding |
 | **Supagram** | `supagram`, `zk-proof`, `inference`, `graph` | Supagram brains, SCXQ2 lane graphs, ZK proofs |
+| **RLHF Code** | `code_example` | Complete working implementations (HTML/CSS/JS/PHP/PWA) |
+| **RLHF Structure** | `rlhf_response_structure` | Response formatting: headers, sections, overview→detail |
+| **RLHF Tone** | `conversational_tone` | Engagement style, collaboration, technical enthusiasm |
+| **RLHF Interaction** | `user_interaction` | Multi-turn flow: terse commands, code drops, iteration |
+| **RLHF Layout** | `layout_pattern` | ASCII diagrams, architecture trees, tables, guides |
+| **Bilingual** | `bilingual` | Chinese/English mixed-language examples |
+| **Gram Stripper** | `gram_stripper` | Gram leakage detection, stripping, brain-aware filtering |
+| **SCXLLM** | `scxllm` | Ramble Engine: pipeline, providers, policy, collapse bridge |
+| **Metabrain** | `metabrain` | Recursive brain generation, evolve(), factory pipeline, convergence math |
+| **Brain Trainer** | `brain_trainer` | Brain model training: corpus→XJSON, intent extraction, merging |
+| **Math Corpora** | `math_corpora` | Formal language: states, transitions, proofs, Merkle roots, Universe |
 
 ### Dataset History
 
@@ -69,11 +80,64 @@ Added supplementary general-purpose datasets for multi-task fine-tuning:
   - Code generation (grok-code-fast: 1,016 samples)
   - Mathematics reasoning (val-mathmatics: 2,007 samples)
 
-**v4 (current):** 147 train + 26 dev. Added 12 Supagram Brain training examples
+**v4:** 147 train + 26 dev. Added 12 Supagram Brain training examples
 covering: supagram XJSON structure, supgram vs n-gram differences, SCXQ2 lane
 inference routing, graph traversal, ZK-inference-proofs, domain brain authoring,
 sealed-to-supagram conversion, and lane_policy filtering. Added canonical
 `supagram-demo-brain.xjson` to `micronaut/brains/`.
+
+**v11 (current):** 331 train + 57 dev. Added Math Corpora formal language
+(`src/scxllm/math-corpora.js`, `doc/math-corpora.v1.md`) — gives brains the
+ability to talk. EBNF grammar with tokenizer, parser, AST, and Universe evaluator.
+8 statement types (state, transition, constraint, field, micronaut, proof,
+arbitration, meta). Compiles to brain XJSON via `compileToBrain()`. 9 training
+examples covering: formal language overview, state/transition definitions, proof
+generation + Merkle roots, compile-to-brain, core sets + algebraic structures,
+validation, theoretical domains, full stack integration, and end-to-end pipeline.
+
+**v10:** 323 train + 56 dev. Added Brain Trainer pipeline
+(`src/scxllm/brain-trainer.js`) — trains brain XJSON models from text corpus,
+JSONL datasets, or conversation data. 10 training examples covering: brain-as-model
+concept, trainBrain from corpus, trainFromDataset with tag filtering, intent brain
+training, mergeBrains for multi-domain, full train→evolve lifecycle, supgram
+construction from n-grams, and recommended training data sources.
+
+**v9:** 315 train + 54 dev. Added Metabrain recursive brain generation
+engine (`src/scxllm/metabrain.js`) and canonical specification
+(`micronaut/brains/metabrain-infinity.xjson`). 14 training examples covering:
+recursive brain evolution, 4-phase factory pipeline, convergence math proofs,
+brain analysis/optimization strategies, validation, emergency stops, monitoring,
+information density, SCXLLM integration, and architecture diagrams.
+
+**v8:** 303 train + 52 dev. Built SCXLLM Ramble Engine (`src/scxllm/`)
+and 14 training examples covering: SCXLLM architecture, quick-start usage, full
+CM-1 pipeline, policy enforcement (4 violation types), streaming narration,
+collapse math with breakdown, LLM provider selection, brain-aware integration,
+engine lifecycle states, projection context configuration, and architecture diagram.
+
+**v7:** 291 train + 50 dev. Added gram stripper module (`src/gram-stripper.js`)
+and 16 training examples covering: gram leakage architecture (why models leak internal
+n-gram/supgram data), 7 artifact class catalog, stripGrams API usage, brain-aware
+stripping, stream wrapping, strict vs normal mode, allowlist configuration, multi-brain
+setups, performance benchmarks, and training dataset curation for gram awareness.
+
+**v6:** 277 train + 48 dev. RLHF deep extraction of 74 examples from
+conversations-ds.json targeting response quality training signals:
+  - Code examples (16): Complete HTML/CSS/JS, PHP, PWA, CSS-as-API implementations
+  - RLHF response structure (14): Markdown headers, bullet/numbered sections, overview→detail→code patterns
+  - Conversational tone (16): Enthusiastic engagement, "yes-and" collaboration, technical compliments
+  - User interaction flow (14): Terse command handling, raw code drops, iterative refinement cycles
+  - Layout patterns (14): ASCII tree diagrams, architecture overviews, comparison tables, step-by-step guides
+  - Bilingual (4): Chinese/English mixed examples from real project sessions
+
+**v5:** 213 train + 38 dev. Deep extraction of 40 K'uhul-focused
+examples from conversations-ds.json covering: K'uhul compression engine (pi-LZ77,
+glyph VM, ⟁ delimiters), SVG-3D tensor weight encoding, CSS weight storage for
+LLM inference, K'uhul training pipeline (weights/biases/quantization), XJSON deep
+patterns (XCF interpreter, AST), DEX/wallet swap implementations, PWA dual manifest
+system, and ASX runtime internals. Plus 38 multicode/math examples from
+grok-code-fast covering: Python, JavaScript, HTML/CSS, TypeScript, C++, Rust,
+bash, SQL, algorithms, data structures, and system design patterns.
 
 ### New in v3 — Real-World Conversation Examples
 Extracted from actual SCX project development sessions covering:

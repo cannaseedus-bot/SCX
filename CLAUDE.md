@@ -15,6 +15,21 @@ SCX/
 ├── nl-verb.bind.v1.js        # NL verb extraction (ES module)
 ├── src/
 │   ├── handlers/filesystem.js  # Sandboxed FS operations
+│   ├── gram-stripper.js        # Post-processing gram artifact filter
+│   ├── scxllm/                 # SCXLLM Ramble Engine
+│   │   ├── index.js            # Public API re-exports
+│   │   ├── engine.js           # Core engine (lifecycle, narration, policy)
+│   │   ├── collapse-bridge.js  # Pi collapse → LLM prompt converter
+│   │   ├── policy.js           # Invariant enforcement (non-mutation, no feedback)
+│   │   ├── pipeline.js         # Full pipeline (CM-1 → collapse → narrate → stream.txt)
+│   │   ├── metabrain.js        # Recursive brain generation (Brain(n) → Brain(n+1))
+│   │   ├── brain-trainer.js   # Brain model training (corpus → XJSON)
+│   │   ├── math-corpora.js   # Formal language (MC v1: states, transitions, proofs)
+│   │   └── providers/          # LLM backend adapters
+│   │       ├── index.js        # Provider registry & auto-detection
+│   │       ├── base.js         # Abstract provider interface
+│   │       ├── ollama.js       # Ollama (local GGUF models)
+│   │       └── api.js          # OpenAI-compatible APIs
 │   └── connectors/             # Universal app connectivity
 │       ├── universal.js        # Connector manager & registry loader
 │       └── adapters.js         # Protocol adapters (HTTP, WS, FS, IPC)
@@ -30,7 +45,7 @@ SCX/
 │   ├── micronaut.ps1          # PowerShell orchestrator (projection only)
 │   ├── object.toml            # Object declaration (lifecycle, IO, REST)
 │   ├── semantics.xjson        # KUHUL-TSG schema
-│   ├── brains/                # Sealed data (trigrams, bigrams, intents)
+│   ├── brains/                # Sealed data (trigrams, bigrams, intents, metabrain)
 │   ├── io/                    # chat.txt, stream.txt, snapshot/
 │   ├── trace/                 # scxq2.trace (append-only)
 │   └── proof/                 # scxq2.proof
